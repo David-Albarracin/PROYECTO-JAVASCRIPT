@@ -1,0 +1,21 @@
+{
+    "activos":[
+        {
+
+            "id ": 1,
+            "CodTransaccion": 324,
+            "NroFormulario": 966217120,
+            "idMarca": "",
+            "idCategoria": "Juegos",
+            "idTipo": "Mesa de Ping pong",
+            "ValorUnitario": "01/11/2023",
+            "idProveedor": "",
+            "NroSerial": "",
+            "idEmpresaResponsable": "",
+            "idEstado": ""
+        }
+    ],
+    "CategoriaActivo": [
+        
+    ]
+}
