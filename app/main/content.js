@@ -1,6 +1,10 @@
 //TEMPLATE
 const template = document.createElement("template");
-template.innerHTML =  /*HTML*/``
+template.innerHTML =  /*HTML*/`
+<h2>Content component</h2>
+
+
+`
 
 //Estructura Básica de un web component
 export class content extends HTMLElement {
