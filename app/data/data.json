@@ -2,13 +2,13 @@
     "activos":[
         {
 
-            "id ": 1,
-            "CodTransaccion": 324,
-            "NroFormulario": 966217120,
+            "id ": "",
+            "CodTransaccion": "",
+            "NroFormulario": "",
             "idMarca": "",
-            "idCategoria": "Juegos",
-            "idTipo": "Mesa de Ping pong",
-            "ValorUnitario": "01/11/2023",
+            "idCategoria": "",
+            "idTipo": "",
+            "ValorUnitario": "",
             "idProveedor": "",
             "NroSerial": "",
             "idEmpresaResponsable": "",
@@ -16,6 +16,87 @@
         }
     ],
     "CategoriaActivo": [
-        
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "Marcas": [
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "TipoPersona": [
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "tipoMovActivo": [
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "TipoActivo": [
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "Estado": [
+        {
+            "id": "",
+            "Nombre": ""
+        }
+    ],
+    "Proveedor": [
+        {
+            "id": "",
+            "Nombre": "",
+            "Email": ""
+        }
+    ],
+    "historialActivo": [
+        {
+            "id": "",
+            "idActivo": "",
+            "Fecha": "",
+            "idResponsable": "",
+            "idEstado": ""
+        }
+    ],
+    "TelefonoPersona": [
+        {
+            "id": "",
+            "Nro": "",
+            "ubicacion": "",
+            "idPersona": ""
+        }
+    ],
+    "Asignacion": [
+        {
+            "id": "",
+            "Fecha": "",
+            "idResponsable": ""
+        }
+    ],
+    "Personas": [
+        {
+            "id": "",
+            "Nombre": "",
+            "Email": "",
+            "idTipoPersona": ""
+        }
+    ],
+    "detalleMovimiento": [
+        {
+            "id": "",
+            "Fecha": "",
+            "idActivo": "",
+            "Comentario": "",
+            "idAsignacion":""
+        }
     ]
 }

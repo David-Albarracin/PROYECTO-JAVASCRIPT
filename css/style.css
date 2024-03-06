@@ -4,3 +4,8 @@
 .sidebar-logo{
     max-width: 250px;
 }
+
+side-bar{
+    display: flex;
+    height: 100vh;
+}

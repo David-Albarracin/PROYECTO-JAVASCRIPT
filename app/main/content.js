@@ -1,7 +1,9 @@
 //TEMPLATE
 const template = document.createElement("template");
 template.innerHTML =  /*HTML*/`
-<h2>Content component</h2>
+<header>
+    <button>CLOSE</button>
+</header>
 
 
 `
