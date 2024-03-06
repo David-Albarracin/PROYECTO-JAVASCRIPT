@@ -5,17 +5,78 @@ class JsonService {
     HEADERS = {
         "Content-Type": "application/json",
     }
-    
+
     async loadData(endPoint){
-        const data = await fetch(`${this.URL_API}${endPoint}`,{
-            method: "GET",
-            headers: this.HEADERS
-        }).then(data => data.json())
-        return data
+        try {
+            const data = await fetch(`${this.URL_API}${endPoint}`,{
+                method: "GET",
+                headers: this.HEADERS
+            }).then(data => data.json())
+            return data
+        } catch (error) {
+            return []
+        }
+
     }
 
+    async loadDataId(endPoint, id){
+        try {
+            const data = await fetch(`${this.URL_API}${endPoint}/${id}`,{
+                method: "GET",
+                headers: this.HEADERS
+            }).then(data => data.json())
+            return data 
+        } catch (error) {
+            return {}
+        }
+
+    }
+
+    async saveData(endPoint, object){
+        try {
+            const data = await fetch(`${this.URL_API}${endPoint}`,{
+                method: "POST",
+                headers: this.HEADERS,
+                body: JSON.stringify(object)
+            })
+            console.log(data)
+            return data
+        } catch (error) {
+            return {}
+        }
+
+    }
+
+    async updateData(endPoint, object){
+        try {
+            const data = await fetch(`${this.URL_API}${endPoint}/${object.id}`,{
+                method: "PUT",
+                headers: this.HEADERS,
+                body: JSON.stringify(object)
+            })
+            console.log(data)
+            return data
+        } catch (error) {
+            return {}
+        }
+
+    }
+
+    async deleteData(endPoint, id){
+        try {
+            const data = await fetch(`${this.URL_API}${endPoint}/${id}`,{
+                method: "DELETE",
+                headers: this.HEADERS
+            })
+            console.log(data)
+            return data
+        } catch (error) {
+            return {}
+        }
+
+    }
 }
 
 export const jsonService = new JsonService()
 
-//crear un saveData el cual funciones de forma similar al loadData, Debe tomar el endPoint y tener agregado un objeto Dato, Debe cargarse el cuerpo del objeto sego la data
+//hacer try cath, si falla retornar un objeto o un arreglo vacio
