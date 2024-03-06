@@ -1,6 +1,9 @@
 //TEMPLATE
 const template = document.createElement("template");
-template.innerHTML =  /*HTML*/``
+template.innerHTML =  /*HTML*/`
+    <button> Guardado Info
+    </button>
+`
 
 //Estructura Básica de un web component
 export class addComponent extends HTMLElement {
@@ -17,6 +20,9 @@ export class addComponent extends HTMLElement {
 
     };
 
+    saveData(){
+        
+    }
 }
 
 // Custom Element registrado (el navegador ya lo conoce)
