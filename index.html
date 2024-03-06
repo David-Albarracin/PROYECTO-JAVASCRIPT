@@ -5,16 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory CampusLands</title>
     <script type="module" src="./js/app.js" defer></script>
-    <script src="./bootstrap/js/bootstrap.bundle.min.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="body">
     <main class="main">
         <div class="row">
+            <nav class="col-md-3" id="sidebar">
+                <div class="sidebar__title">
+                    <img class="sidebar-logo" src="./img/logoWhite.png" alt="logoWhite">
+                </div>
+                <ul>
+                    <li class="nav__link nav-active">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                Dashboard
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <h4>MAIN</h4>
+                <div class="divider">
+                </div>
+                <ul>
+                    <li class="nav__link">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                Elements
+                            </span>
+                        </div>
+                        <i class='bx bxs-chevron-down' ></i>
+                    </li>
+    
+                    <li class="nav__link">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                Charts
+                            </span>
+                        </div>
+                    </li>
+    
+                    <li class="nav__link">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                WIDGETS
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <h4>TABLE AND FORMS</h4>
+                <div class="divider">
+                </div>
+                <ul>
+                    <li class="nav__link">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                Tables
+                            </span>
+                        </div>
+                    </li>
+    
+                    <li class="nav__link">
+                        <div>
+                            <i class='bx bxs-dashboard'></i>
+                            <span>
+                                Forms
+                            </span>
+                        </div>
+                        <i class='bx bxs-chevron-down' ></i>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-md-9">
+                <div class="menu">
+                    <nav class="header">
+                        <button class="toggle-sidebar">
+                            <h2>
+                                <i class='bx bx-menu'></i>
+                            </h2>
+                        </button>
+                        <button class="profile">
+                            <h1>
+                                <i class='bx bxs-user-circle'></i>
+                            </h1>
+                        </button>
+                    </nav>
+                    <div class="menu__body">
+                        <div class="menu__title">
+                            <h1>Dashboard</h1>
+                            <a href="/">Home / Dashboard</a>
+                        </div>
+                        <div class="menu__cards">
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- <main class="main">
+        <div class="row">
             <side-bar class="col-lg-2"></side-bar>
             <content-component class="col-lg-9"></content-component>
         </div>
-    </main>
+    </main> -->
 </body>
 </html>
