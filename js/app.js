@@ -9,12 +9,6 @@ import './../app/components/editComponent.js'
 import './../app/components/searchComponent.js'
 import './../app/components/tableComponent.js'
 
-import { jsonService } from '../app/components/jsonService.js'
-
-document.addEventListener('DOMContentLoaded', () => {
-    jsonService.loadData('activos')
-})
-
 
 
 // SIDEBAR DROPDOWN
