@@ -12,7 +12,7 @@ template.innerHTML =  /*HTML*/`
 			
 			<span class="divider"></span>
 			<div class="profile">
-				<img src="./../../img/logo.png" alt="logo">
+				<img src="./img/logo.png" alt="logo">
 				<ul class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
 					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>

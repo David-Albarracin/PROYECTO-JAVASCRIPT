@@ -49,7 +49,7 @@ const content = document.querySelector('#content');
 if(sidebar.classList.contains('hide')) {
 	allSideDivider.forEach(item=> {
 		item.textContent = '-';
-        logo.src = "./../../img/logo.png";
+        logo.src = "./img/logo.png";
         
 	})
 	allDropdown.forEach(item=> {
@@ -60,7 +60,7 @@ if(sidebar.classList.contains('hide')) {
 } else {
 	allSideDivider.forEach(item=> {
 		item.textContent = item.dataset.text;
-        logo.src = "./../../img/logoWhite.png";
+        logo.src = "./img/logoWhite.png";
 	})
 }
 toggleSidebar.addEventListener('click', function () {
@@ -69,7 +69,7 @@ toggleSidebar.addEventListener('click', function () {
 	if(sidebar.classList.contains('hide')) {
 		allSideDivider.forEach(item=> {
 			item.textContent = '-'
-            logo.src = "./../../img/logo.png";
+            logo.src = "./img/logo.png";
             content.classList.add('content-record');
 		})
 
@@ -81,7 +81,7 @@ toggleSidebar.addEventListener('click', function () {
 	} else {
 		allSideDivider.forEach(item=> {
 			item.textContent = item.dataset.text;
-            logo.src = "./../../img/logoWhite.png";
+            logo.src = "./img/logoWhite.png";
             content.classList.remove('content-record');
 		})
 	}
@@ -95,7 +95,7 @@ sidebar.addEventListener('mouseleave', function () {
 		})
 		allSideDivider.forEach(item=> {
 			item.textContent = '-'
-            logo.src = "./../../img/logo.png";
+            logo.src = "./img/logo.png";
             content.classList.add('content-record');
 		})
 	}
@@ -109,7 +109,7 @@ sidebar.addEventListener('mouseenter', function () {
 		})
 		allSideDivider.forEach(item=> {
 			item.textContent = item.dataset.text;
-            logo.src = "./../../img/logoWhite.png";
+            logo.src = "./img/logoWhite.png";
             content.classList.remove('content-record');
 		})
 	}

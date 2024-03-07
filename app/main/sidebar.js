@@ -4,7 +4,7 @@ template.innerHTML =  /*HTML*/`
 <!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-      <img id="imgLogo" class="sidebar-logo" src="./../../img/logoWhite.png" alt="logo"></img>
+      <img id="imgLogo" class="sidebar-logo" src="./img/logoWhite.png" alt="logo"></img>
     </a>
 		<ul class="side-menu">
 			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i>INICIO</a></li>
