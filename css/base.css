@@ -1,0 +1,129 @@
+/* ========================= BASE ========================= */
+:root{
+
+    /* HEADER */
+    --header-height: 4rem;
+  
+    /*========== Colors ==========*/
+     --first-color: #0056b3;
+     --second-color: #a60074;
+     --button-color: #3483fa;
+     --button-color-alt: #0056b3;
+     --title-color: hsl(0, 0%, 15%);
+     --text-color: hsl(0, 0%, 35%);
+     --text-color-light: hsl(0, 0%, 55%);
+     --body-color: #fff;
+     --container-color: #e7e7e7;
+     --border-color: hsl(0, 0%, 88%);
+     --shop-color: hsl(0, 0%, 92%);
+     --discount-color: #00a650;
+     --background-show: rgba(24, 24, 24, 0.929);
+
+    /*========== FONT ==========*/
+     --body-font: 'Roboto', sans-serif;
+
+     --biggest-font-size: 2rem;
+     --h1-font-size: 1.5rem;
+     --h2-font-size: 1.25rem;
+     --h3-font-size: 1rem;
+     --normal-font-size: .938rem;
+     --small-font-size: .813rem;
+     --smaller-font-size: .75rem;
+     --dark-grey: #8D8D8D;
+     --grey: #F1F0F6;
+     --light: #fff;
+	 --dark: #000;
+	 --green: #81D43A;
+	 --light-green: #E3FFCB;
+	 --blue: #1775F1;
+	 --light-blue: #D0E4FF;
+	 --dark-blue: #0C5FCD;
+	 --red: #FC3B56;
+
+    @media screen and (min-width: 968px){
+        /* HEADER */
+        --header-height: 4rem;
+
+        /*========== FONT ==========*/
+         --biggest-font-size: 2.5rem;
+         --h1-font-size: 2.25rem;
+         --h2-font-size: 1.5rem;
+         --h3-font-size: 1.25rem;
+         --normal-font-size: 1rem;
+         --small-font-size: .875rem;
+         --smaller-font-size: .813rem;
+
+    }
+
+}
+
+
+
+
+
+ 
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body,
+button,
+input{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+
+body{
+    margin: 0;
+    background: var(--grey);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4{
+    color: var(--title-color);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+h1{
+    font-size: var(--h1-font-size);
+}
+
+h2{
+    font-size: var(--h2-font-size);
+}
+
+h3{
+    font-size: var(--h3-font-size);
+}
+
+h4{
+    font-weight: var(--font-medium);  
+}
