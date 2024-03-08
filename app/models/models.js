@@ -1,5 +1,4 @@
 import {jsonService} from './../components/jsonService.js'
-
 // Modelo para activos
 export class Activo {
     constructor(id, CodTransaccion, NroFormulario, idMarca, idCategoria, idTipo, ValorUnitario, idProveedor, NroSerial, idEmpresaResponsable, idEstado) {
@@ -51,14 +50,15 @@ export class Activo {
         <div class="form-group">
             <label for="idCategoria">Selecciona la Categoria</label>
             <select class="form-control" id="idCategoria" placeholder="Marcas...">
-                <option></option>
+                <opcion></option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idTipo">Selecciona el Tipo</label>
             <select class="form-control" id="idTipo" placeholder="Tipo de Producto">
-                <option></option>
+                <opcion></option>
+                <option value="NoFound">DEFECTO</option>
             </select>
         </div>
         
@@ -67,7 +67,8 @@ export class Activo {
         <div class="form-group">
             <label for="idProveedor">Selecciona el Proveedor</label>
             <select class="form-control" id="idProveedor" placeholder="Proveedores">
-                <option></option>
+                <opcion></option>    
+                <option value="NoFound">DEFECTO</option>
             </select>
         </div>
         
@@ -76,14 +77,15 @@ export class Activo {
         <div class="form-group">
             <label for="idEmpresaResponsable">Selecciona el ID del Responsable</label>
             <select class="form-control" id="idEmpresaResponsable" placeholder="Responsable">
-                <option></option>
+                <opcion></option>
+                <option value="NoFound">DEFECTO</option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idEstado">Estado</label>
             <select class="form-control" id="idEstado" placeholder="ESTADO DEL PRODUCTO">
-                <option></option>
+                <option value="NoFound">DEFECTO</option>
             </select>
         </div>
     `
@@ -100,7 +102,7 @@ export class CategoriaActivo {
         <label for="id">ID</label>
         <input disable class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
-
+    
     <div class="form-group">
         <label for="nombre">Nombre</label>
         <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de la Categoria">
@@ -251,8 +253,8 @@ export class HistorialActivo {
         </div>
 
         <div class="form-group">
-            <label for="fecha">Fecha</label>
-            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+            <label for="fecha" >Fecha</label>
+            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
         </div>
 
         <div class="form-group">
@@ -261,8 +263,8 @@ export class HistorialActivo {
         </div>
 
         <div class="form-group">
-            <label for="estado">Estado</label>
-            <select class="form-control" id="estado">
+            <label for="Estado">Estado</label>
+            <select class="form-control" id="Estado">
                 <!-- Opciones del select -->
             </select>
         </div>
@@ -315,7 +317,7 @@ export class Asignacion {
 
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
         </div>
 
         <div class="form-group">
@@ -373,7 +375,7 @@ export class DetalleMovimiento {
 
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+            <input type="date" type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
         </div>
 
         <div class="form-group">
@@ -408,7 +410,7 @@ export function getModel(type) {
             return new TipoMovimientoActivo();
         case 'TipoActivo':
             return new TipoActivo();
-        case 'estado':
+        case 'Estado':
             return new Estado();
         case 'Proveedor':
             return new Proveedor();
@@ -426,3 +428,111 @@ export function getModel(type) {
             throw new Error(`Modelo '${type}' no encontrado`);
     }
 }
+
+
+/*
+"categorias": [
+    {
+      "id": "01",
+      "nombre": "Equipo de computo"
+    },
+    {
+      "id": "02",
+      "nombre": "Electrodomestico"
+    },
+    {
+      "id": "03",
+      "nombre": "Juego"
+    }
+  ],
+  "marcas": [
+    {
+      "id": "01",
+      "nombre": "LG"
+    },
+    {
+      "id": "02",
+      "nombre": "COMPUMAX"
+    },
+    {
+      "id": "03",
+      "nombre": "LOGITECH"
+    },
+    {
+      "id": "04",
+      "nombre": "BENQ"
+    },
+    {
+      "id": "05",
+      "nombre": "ASUS"
+    },
+    {
+      "id": "06",
+      "nombre": "LENOVO"
+    },
+    {
+      "id": "07",
+      "nombre": "HP"
+    }
+  ],
+  "TipoPersona": [
+    {
+      "id": "",
+      "Nombre": ""
+    }
+  ],
+  "tipoMovActivo": [
+    {
+      "id": "",
+      "Nombre": ""
+    }
+  ],
+  "TipoActivo": [
+    {
+      "id": "00",
+      "nombre": "Monitor"
+    },
+    {
+      "id": "01",
+      "Nombre": "CPU"
+    },
+    {
+      "id": "02",
+      "Nombre": "Teclado"
+    },
+    {
+      "id": "03",
+      "Nombre": "Mouse"
+    },
+    {
+      "id": "04",
+      "Nombre": "Aire Acondicionado"
+    },
+    {
+      "id": "05",
+      "Nombre": "Portatil"
+    },
+    {
+      "id": "06",
+      "Nombre": "Impresora"
+    }
+  ],
+  "estado": [
+    {
+      "id": "00",
+      "Nombre": "No asignado"
+    },
+    {
+      "id": "01",
+      "Nombre": "Asignado"
+    },
+    {
+      "id": "02",
+      "Nombre": "Dado de baja por daño"
+    },
+    {
+      "id": "03",
+      "Nombre": " en repacion y/o Garantia"
+    }
+  ],
+*/

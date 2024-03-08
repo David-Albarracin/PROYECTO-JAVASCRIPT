@@ -11,24 +11,64 @@
       "idProveedor": "",
       "NroSerial": "",
       "idEmpresaResponsable": "",
-      "idEstado": "",
-      "id": "ec10"
+      "idEstado": ""
     },
     {
-      "id": "2d76",
-      "": ""
+      "id": "",
+      "NroSerial": "",
+      "CodTransaccion": "",
+      "NroFormulario": "",
+      "ValorUnitario": "",
+      "idMarca": "06",
+      "idCategoria": "NoFound",
+      "idTipo": "NoFound",
+      "idProveedor": "NoFound",
+      "idEmpresaResponsable": "NoFound",
+      "idEstado": "NoFound"
     }
   ],
-  "CategoriaActivo": [
+  "categorias": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "01",
+      "nombre": "Equipo de computo"
+    },
+    {
+      "id": "02",
+      "nombre": "Electrodomestico"
+    },
+    {
+      "id": "03",
+      "nombre": "Juego"
     }
   ],
   "marcas": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "01",
+      "nombre": "LG"
+    },
+    {
+      "id": "02",
+      "nombre": "COMPUMAX"
+    },
+    {
+      "id": "03",
+      "nombre": "LOGITECH"
+    },
+    {
+      "id": "04",
+      "nombre": "BENQ"
+    },
+    {
+      "id": "05",
+      "nombre": "ASUS"
+    },
+    {
+      "id": "06",
+      "nombre": "LENOVO"
+    },
+    {
+      "id": "07",
+      "nombre": "HP"
     }
   ],
   "TipoPersona": [
@@ -45,14 +85,50 @@
   ],
   "TipoActivo": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "00",
+      "nombre": "Monitor"
+    },
+    {
+      "id": "01",
+      "Nombre": "CPU"
+    },
+    {
+      "id": "02",
+      "Nombre": "Teclado"
+    },
+    {
+      "id": "03",
+      "Nombre": "Mouse"
+    },
+    {
+      "id": "04",
+      "Nombre": "Aire Acondicionado"
+    },
+    {
+      "id": "05",
+      "Nombre": "Portatil"
+    },
+    {
+      "id": "06",
+      "Nombre": "Impresora"
     }
   ],
   "estado": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "00",
+      "Nombre": "No asignado"
+    },
+    {
+      "id": "01",
+      "Nombre": "Asignado"
+    },
+    {
+      "id": "02",
+      "Nombre": "Dado de baja por daño"
+    },
+    {
+      "id": "03",
+      "Nombre": " en repacion y/o Garantia"
     }
   ],
   "Proveedor": [
