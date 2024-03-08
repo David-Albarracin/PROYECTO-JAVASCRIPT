@@ -1,5 +1,6 @@
 import { getModel } from "./../models/models.js";
 import { jsonService } from './jsonService.js'
+import { Swal } from "./sweetAlert.js";
 //TEMPLATE
 const template = document.createElement("template");
 
@@ -17,14 +18,31 @@ export class addComponent extends HTMLElement {
     render(){
         //load Component and template
         const html = template.content.cloneNode((true));
-        html.appendChild(this.createForm())
+        html.appendChild(this.loadSelects(this.createForm()))
         this.appendChild(html);
 
     };
 
-    saveData(){
-        
+    loadSelects(createForm) {
+        const selects = createForm.querySelectorAll('select');
+        selects.forEach(select => {
+            const propName = select.id.replace('id', '').toLocaleLowerCase(); // Eliminar 'id' del ID del select para obtener el nombre de la propiedad
+            jsonService.loadData(propName)
+                .then(data => {
+                    data.forEach(element => {
+                        const option = document.createElement("option");
+                        option.value = element.id;
+                        option.textContent = element.nombre;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error(`Error al cargar los datos para ${propName}:`, error);
+                });
+        });
+        return createForm;
     }
+    
 
     createForm(){
         //Verificar si es Crear uno Nuevo o editar
@@ -49,8 +67,34 @@ export class addComponent extends HTMLElement {
             })
         }else{
             button.addEventListener('click', (e)=>{
+                // Evitar que se envíe el formulario
+                e.preventDefault();
 
-                console.log('guardando');
+                // Obtener el formulario por su ID
+                const form = document.getElementById(typeAdd);
+
+                // Obtener los valores de los inputs y selects
+                const formData = {};
+                const inputs = form.querySelectorAll('input');
+                const selects = form.querySelectorAll('select');
+
+                // Iterar sobre los inputs y añadir sus valores al objeto formData
+                inputs.forEach(input => {
+                    formData[input.id] = input.value;
+                });
+
+                // Iterar sobre los selects y añadir sus valores al objeto formData
+                selects.forEach(select => {
+                    formData[select.id] = select.value;
+                });
+
+                // Guardar los datos utilizando jsonService.saveData
+                jsonService.saveData(typeAdd, formData).then(response => {
+                    Swal.fire(response)
+                    document.getElementById('dialog').close();
+                });
+
+
             })
         }
         formContent.appendChild(button);

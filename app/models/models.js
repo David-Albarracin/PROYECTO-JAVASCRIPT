@@ -1,3 +1,5 @@
+import {jsonService} from './../components/jsonService.js'
+
 // Modelo para activos
 export class Activo {
     constructor(id, CodTransaccion, NroFormulario, idMarca, idCategoria, idTipo, ValorUnitario, idProveedor, NroSerial, idEmpresaResponsable, idEstado) {
@@ -42,7 +44,7 @@ export class Activo {
         <div class="form-group">
             <label for="idMarca">Selecciona la Marca</label>
             <select class="form-control" id="idMarca" placeholder="Marcas...">
-                <option></option>
+                
             </select>
         </div>
         
@@ -93,6 +95,18 @@ export class CategoriaActivo {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de la Categoria">
+    </div>
+    
+    `
 }
 
 // Modelo para Marcas
@@ -101,6 +115,18 @@ export class Marca {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de la Marca">
+    </div>
+    
+    `
 }
 
 // Modelo para Tipo de Persona
@@ -109,6 +135,18 @@ export class TipoPersona {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Persona">
+    </div>
+    
+    `
 }
 
 // Modelo para Tipo de Movimiento de Activo
@@ -117,6 +155,18 @@ export class TipoMovimientoActivo {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Movimiento Activo">
+    </div>
+    
+    `
 }
 
 // Modelo para Tipo de Activo
@@ -125,6 +175,18 @@ export class TipoActivo {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+    </div>
+    
+    `
 }
 
 // Modelo para Estado
@@ -133,6 +195,18 @@ export class Estado {
         this.id = id;
         this.Nombre = Nombre;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+    </div>
+    
+    `
 }
 
 // Modelo para Proveedor
@@ -142,6 +216,23 @@ export class Proveedor {
         this.Nombre = Nombre;
         this.Email = Email;
     }
+    template = `
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email" placeholder="Ingresa el Correo Electrónico">
+    </div>
+    
+    `
 }
 
 // Modelo para Historial de Activo
@@ -153,6 +244,29 @@ export class HistorialActivo {
         this.idResponsable = idResponsable;
         this.idEstado = idEstado;
     }
+    template = `
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable</label>
+            <input class="form-control" id="responsable" placeholder="Ingresa el ID del Responsable">
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <select class="form-control" id="estado">
+                <!-- Opciones del select -->
+            </select>
+        </div>
+    `;
 }
 
 // Modelo para Teléfono de Persona
@@ -163,6 +277,27 @@ export class TelefonoPersona {
         this.ubicacion = ubicacion;
         this.idPersona = idPersona;
     }
+    template = `
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
+        </div>
+
+        <div class="form-group">
+            <label for="numero">Número</label>
+            <input class="form-control" id="numero" placeholder="Ingresa el Número de Teléfono">
+        </div>
+
+        <div class="form-group">
+            <label for="ubicacion">Ubicación</label>
+            <input class="form-control" id="ubicacion" placeholder="Ingresa la Ubicación">
+        </div>
+
+        <div class="form-group">
+            <label for="persona">Persona</label>
+            <input class="form-control" id="persona" placeholder="Ingresa el ID de la Persona">
+        </div>
+    `;
 }
 
 // Modelo para Asignación
@@ -172,6 +307,22 @@ export class Asignacion {
         this.Fecha = Fecha;
         this.idResponsable = idResponsable;
     }
+    template = `
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable</label>
+            <input class="form-control" id="responsable" placeholder="Ingresa el ID del Responsable">
+        </div>
+    `;
 }
 
 // Modelo para Personas
@@ -182,6 +333,27 @@ export class Persona {
         this.Email = Email;
         this.idTipoPersona = idTipoPersona;
     }
+    template = `
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input class="form-control" id="nombre" placeholder="Ingresa el Nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" placeholder="Ingresa el Correo Electrónico">
+        </div>
+
+        <div class="form-group">
+            <label for="tipoPersona">Tipo de Persona</label>
+            <input class="form-control" id="tipoPersona" placeholder="Ingresa el ID del Tipo de Persona">
+        </div>
+    `;
 }
 
 // Modelo para Detalle de Movimiento
@@ -193,6 +365,32 @@ export class DetalleMovimiento {
         this.Comentario = Comentario;
         this.idAsignacion = idAsignacion;
     }
+    template = `
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+        </div>
+
+        <div class="form-group">
+            <label for="activo">Activo</label>
+            <input class="form-control" id="activo" placeholder="Ingresa el ID del Activo">
+        </div>
+
+        <div class="form-group">
+            <label for="comentario">Comentario</label>
+            <input class="form-control" id="comentario" placeholder="Ingresa el Comentario">
+        </div>
+
+        <div class="form-group">
+            <label for="asignacion">Asignación</label>
+            <input class="form-control" id="asignacion" placeholder="Ingresa el ID de la Asignación">
+        </div>
+    `;
 }
 
 
@@ -210,7 +408,7 @@ export function getModel(type) {
             return new TipoMovimientoActivo();
         case 'TipoActivo':
             return new TipoActivo();
-        case 'Estado':
+        case 'estado':
             return new Estado();
         case 'Proveedor':
             return new Proveedor();
@@ -220,7 +418,7 @@ export function getModel(type) {
             return new TelefonoPersona();
         case 'Asignacion':
             return new Asignacion();
-        case 'Persona':
+        case 'persona':
             return new Persona();
         case 'DetalleMovimiento':
             return new DetalleMovimiento();

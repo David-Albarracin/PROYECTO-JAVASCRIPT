@@ -32,12 +32,30 @@ export class tableComponent extends HTMLElement {
                     Buscar
                 </button>
         </nav>
-
         `
+        data.forEach(element => {
+            template.innerHTML += `
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        ${Object.entries(element).map(([key, value]) => `
+                            <tr>
+                                <th>${key}:</th>
+                                <td>${value}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+            ` 
+        });
         const html = template.content.cloneNode((true));
-        html.querySelector('#add').addEventListener('click', (e) => {
-            this.openDialog('add')
-        })
+        html.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                this.openDialog(e.target.id)
+            });
+        });
+       
         this.appendChild(html);
 
     };
@@ -46,7 +64,15 @@ export class tableComponent extends HTMLElement {
     openDialog(component){
         const dialog = document.getElementById('dialog');
         dialog.innerHTML = `
-        
+        <div class="dialog-buttons">
+            <button onclick="dialog.close()" class="button">
+                <i class='bx bx-arrow-back'></i>
+            </button>
+            <h3>${component.toUpperCase()} ${this.type.toUpperCase()}S</h3>
+            <button onclick="dialog.close()" class="button">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
             <${component}-component type="${this.type}"></${component}-component>
         
         `;

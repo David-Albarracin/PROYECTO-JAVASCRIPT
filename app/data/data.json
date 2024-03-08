@@ -13,6 +13,10 @@
       "idEmpresaResponsable": "",
       "idEstado": "",
       "id": "ec10"
+    },
+    {
+      "id": "2d76",
+      "": ""
     }
   ],
   "CategoriaActivo": [
@@ -21,7 +25,7 @@
       "Nombre": ""
     }
   ],
-  "Marcas": [
+  "marcas": [
     {
       "id": "",
       "Nombre": ""
@@ -45,7 +49,7 @@
       "Nombre": ""
     }
   ],
-  "Estado": [
+  "estado": [
     {
       "id": "",
       "Nombre": ""
@@ -75,14 +79,14 @@
       "idPersona": ""
     }
   ],
-  "Asignacion": [
+  "asignacion": [
     {
       "id": "",
       "Fecha": "",
       "idResponsable": ""
     }
   ],
-  "Personas": [
+  "personas": [
     {
       "id": "",
       "Nombre": "",
