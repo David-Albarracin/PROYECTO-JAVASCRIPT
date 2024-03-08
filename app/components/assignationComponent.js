@@ -1,16 +1,20 @@
 //TEMPLATE
 const template = document.createElement("template");
-template.innerHTML =  /*HTML*/``
+template.innerHTML =  /*HTML*/`
+
+
+
+`
 
 //Estructura Básica de un web component
 export class assignationComponent extends HTMLElement {
-    
-    constructor(){
+
+    constructor() {
         super();
         this.render();
     }
 
-    render(){
+    render() {
         //load Component and template  
         const html = template.content.cloneNode((true));
         this.appendChild(html);
