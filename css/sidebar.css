@@ -11,7 +11,7 @@
 	overflow-y: auto;
 	scrollbar-width: none;
 	transition: all .3s ease;
-	z-index: 200;
+	z-index: 2;
 	overflow: scroll;
 }
 #sidebar.hide {
@@ -33,7 +33,7 @@
 	/* position: sticky; */
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 1;
 	/* background: var(--light); */
 	transition: all .3s ease;
 	padding: 1rem 6px;
@@ -99,11 +99,16 @@
 	text-align: center;
 }
 #sidebar .side-dropdown {
-	padding-left: 54px;
+	padding-left: 25px;
 	max-height: 0;
 	overflow-y: hidden;
 	transition: all .15s ease;
 }
+
+#sidebar .side-dropdown a{
+	padding-left: 0.5rem;
+}
+
 #sidebar .side-dropdown.show {
 	max-height: 1000px;
 }
@@ -183,7 +188,7 @@ nav {
 	position: sticky;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 1;
 }
 nav .toggle-sidebar {
 	font-size: 18px;
@@ -249,7 +254,7 @@ nav .profile {
 	position: relative;
 }
 nav .profile img {
-	width: 36px;
+	min-width: 36px;
 	height: 36px;
 	border-radius: 50%;
 	object-fit: cover;
@@ -414,7 +419,7 @@ main .content-data .head .menu-link {
 	border-radius: 10px;
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
 	padding: 10px 0;
-	z-index: 100;
+	z-index: 1;
 	opacity: 0;
 	pointer-events: none;
 	transition: all .3s ease;

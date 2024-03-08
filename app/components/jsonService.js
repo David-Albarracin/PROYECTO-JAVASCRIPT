@@ -8,7 +8,7 @@ class JsonService {
 
     async loadData(endPoint){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}`,{
+            const data = await fetch(`${this.URL_API}${endPoint}s`,{
                 method: "GET",
                 headers: this.HEADERS
             }).then(data => data.json())
@@ -21,7 +21,7 @@ class JsonService {
 
     async loadDataId(endPoint, id){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}/${id}`,{
+            const data = await fetch(`${this.URL_API}${endPoint}s/${id}`,{
                 method: "GET",
                 headers: this.HEADERS
             }).then(data => data.json())
@@ -34,12 +34,11 @@ class JsonService {
 
     async saveData(endPoint, object){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}`,{
+            const data = await fetch(`${this.URL_API}${endPoint}s`,{
                 method: "POST",
                 headers: this.HEADERS,
                 body: JSON.stringify(object)
             })
-            console.log(data)
             return data
         } catch (error) {
             return {}

@@ -1,3 +1,14 @@
+const homeTemplate = `
+<h1>Gracias Por Preferirnos</h2>
+
+
+`
+
+document.addEventListener('DOMContentLoaded', () => {
+    const main = document.querySelector('#content-data')
+	main.innerHTML = homeTemplate
+})
+
 //TEMPLATE
 const template = document.createElement("template");
 template.innerHTML =  /*HTML*/`
@@ -7,29 +18,25 @@ template.innerHTML =  /*HTML*/`
       <img id="imgLogo" class="sidebar-logo" src="./img/logoWhite.png" alt="logo"></img>
     </a>
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i>INICIO</a></li>
-			<li class="divider" data-text="main">Main</li>
+			<li><a data-link='["i"]' href="#" class="active"><i class='bx bxs-dashboard icon' ></i>INICIO</a></li>
+			<li class="divider" data-text="main">Formularios</li>
 			<li>
-				<a href="#"><i class='bx bxs-inbox icon' ></i>Activos <i class='bx bx-chevron-right icon-right' ></i></a>
+				<a id="noEvent" href="#"><i class='bx bxs-inbox icon' ></i>Asignación <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Badges</a></li>
-					<li><a href="#">Breadcrumbs</a></li>
-					<li><a href="#">Button</a></li>
+					<li><a data-link='["asignacion"]' href="#">Crear Asignación</a></li>
+					<li><a data-link='["asignacion"]' href="#">Asignar Activo</a></li>
+					<li><a data-link='["asignacion"]' href="#">Retornar Activo</a></li>
 				</ul>
 			</li>
-			<li><a href="#"><i class='bx bxs-chart icon' ></i> Charts</a></li>
-			<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
-			<li class="divider" data-text="table and forms">Table and forms</li>
-			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
-			<li>
-				<a href="#"><i class='bx bxs-notepad icon' ></i> Forms <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="#">Basic</a></li>
-					<li><a href="#">Select</a></li>
-					<li><a href="#">Checkbox</a></li>
-					<li><a href="#">Radio</a></li>
-				</ul>
-			</li>
+			<li><a data-link='["activo"]' href="#"><i class='bx bxs-chart icon' ></i> Activos</a></li>
+			<li><a data-link='["marca"]' href="#"><i class='bx bxs-widget icon' ></i> Marcas</a></li>
+			<li><a data-link='["persona"]' href="#"><i class='bx bxs-widget icon' ></i> Personas</a></li>
+			<li><a data-link='["estado"]' href="#"><i class='bx bxs-widget icon' ></i> Estados</a></li>
+			<li class="divider" data-text="table and forms">Consultar</li>
+
+			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Persona</a></li>
+			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Movimiento Activo</a></li>
+			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Activo</a></li>
 		</ul>
 	</section>
 <!-- SIDEBAR -->
@@ -47,8 +54,75 @@ export class sideBar extends HTMLElement {
     render(){
         //load Component and template  
         const html = template.content.cloneNode((true));
-        this.appendChild(html);
+		const tagA = html.querySelectorAll('a')
+		tagA.forEach(a => {
+            if(a.id != "noEvent"){
+                a.addEventListener('click', (e) => {
+                    tagA.forEach(link => {
+                        link == e.target? link.classList.add("active") : link.classList.remove('active');
+                    });
+                    const url = JSON.parse(e.target.dataset.link)
+                    const main = document.querySelector('#content-data')
+                    switch (url[0]) {
+                        case 'i':
+                            main.innerHTML = homeTemplate;
+                            break;
+                        case 'activo':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Manejo de Activos</h3>
+                                </div>
+                                <table-component type="activo"></table-component>
+                            </div>
+                            
+                            `;
+                            break;
+    
+                        case 'marca':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Manejo de Marcas</h3>
+                                </div>
+                                <table-component type="marca" id=""></table-component>
+                            </div>
+                            
+                            `;
+                            break;
+    
+                        case 'persona':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Lista de Clientes</h3>
+                                </div>
+                                <table-component type="persona" id=""></table-component>
+                            </div>
+                            `;
+                            break;
 
+                         case 'estado':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Manejo de Estados</h3>
+                                </div>
+                                <table-component type="estado" id=""></table-component>
+                            </div>
+                            `;
+                            break;
+    
+                        default:
+                            main.innerHTML = `<h1>Page Not Fount</h1>`;
+                            break;
+                    };
+                    e.stopImmediatePropagation();
+                    e.stopPropagation();
+                });
+            }
+        });
+        this.appendChild(html);
     };
 
 }
