@@ -1,4 +1,4 @@
-import {jsonService} from './../components/jsonService.js'
+//import {jsonService} from './../components/jsonService.js'
 
 // Modelo para activos
 export class Activo {
@@ -18,7 +18,7 @@ export class Activo {
     template = `
         <div class="form-group">
             <label for="id">ID</label>
-            <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+            <input class="form-control" id="id" placeholder="Ingresa el ID" disabled>
         </div>
 
         <div class="form-group">
@@ -44,7 +44,7 @@ export class Activo {
         <div class="form-group">
             <label for="idMarca">Selecciona la Marca</label>
             <select class="form-control" id="idMarca" placeholder="Marcas...">
-                
+                <option></option>
             </select>
         </div>
         
@@ -98,7 +98,7 @@ export class CategoriaActivo {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -118,7 +118,7 @@ export class Marca {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -138,7 +138,7 @@ export class TipoPersona {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -158,7 +158,7 @@ export class TipoMovimientoActivo {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -178,7 +178,7 @@ export class TipoActivo {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -198,7 +198,7 @@ export class Estado {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -219,7 +219,7 @@ export class Proveedor {
     template = `
     <div class="form-group">
         <label for="id">ID</label>
-        <input disable class="form-control" id="id" placeholder="Ingresa el ID">
+        <input disabled class="form-control" id="id" placeholder="Ingresa el ID">
     </div>
 
     <div class="form-group">
@@ -393,14 +393,14 @@ export class DetalleMovimiento {
     `;
 }
 
-
 export function getModel(type) {
+    
     switch (type) {
-        case 'activo':
+        case 'idActivo':
             return new Activo();
         case 'CategoriaActivo':
             return new CategoriaActivo();
-        case 'marca':
+        case 'idMarca':
             return new Marca();
         case 'TipoPersona':
             return new TipoPersona();
@@ -408,7 +408,7 @@ export function getModel(type) {
             return new TipoMovimientoActivo();
         case 'TipoActivo':
             return new TipoActivo();
-        case 'estado':
+        case 'idEstado':
             return new Estado();
         case 'Proveedor':
             return new Proveedor();
@@ -418,11 +418,11 @@ export function getModel(type) {
             return new TelefonoPersona();
         case 'Asignacion':
             return new Asignacion();
-        case 'persona':
+        case 'idResponsable':
             return new Persona();
         case 'DetalleMovimiento':
             return new DetalleMovimiento();
         default:
-            throw new Error(`Modelo '${type}' no encontrado`);
+            throw new Error(`Modelo '${mappedType}' no encontrado`);
     }
 }

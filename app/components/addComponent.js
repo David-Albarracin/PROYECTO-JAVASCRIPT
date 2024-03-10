@@ -15,24 +15,25 @@ export class addComponent extends HTMLElement {
 
     
 
-    render(){
+    async render(){
         //load Component and template
         const html = template.content.cloneNode((true));
-        html.appendChild(this.loadSelects(this.createForm()))
+        html.appendChild(this.loadSelects(await this.createForm()))
+       
         this.appendChild(html);
+        
 
     };
 
     loadSelects(createForm) {
         const selects = createForm.querySelectorAll('select');
-        selects.forEach(select => {
-            const propName = select.id.replace('id', '').toLocaleLowerCase(); // Eliminar 'id' del ID del select para obtener el nombre de la propiedad
-            jsonService.loadData(propName)
+        selects.forEach(async select => {
+            await jsonService.loadData(select.id)
                 .then(data => {
                     data.forEach(element => {
                         const option = document.createElement("option");
                         option.value = element.id;
-                        option.textContent = element.nombre;
+                        option.textContent = element.Nombre;
                         select.appendChild(option);
                     });
                 })
@@ -44,7 +45,7 @@ export class addComponent extends HTMLElement {
     }
     
 
-    createForm(){
+    async createForm(){
         //Verificar si es Crear uno Nuevo o editar
         const idObject = this.getAttribute('id');
         const isEdit = idObject? jsonService.loadDataId(idObject):false
@@ -98,6 +99,7 @@ export class addComponent extends HTMLElement {
             })
         }
         formContent.appendChild(button);
+        formContent.querySelector('#id').value =  await jsonService.loadData(typeAdd).then(e => e.length + 1)
         return formContent
     }
 

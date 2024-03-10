@@ -73,7 +73,7 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Manejo de Activos</h3>
                                 </div>
-                                <table-component type="activo"></table-component>
+                                <table-component type="idActivo"></table-component>
                             </div>
                             
                             `;
@@ -85,7 +85,7 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Manejo de Marcas</h3>
                                 </div>
-                                <table-component type="marca" id=""></table-component>
+                                <table-component type="idMarca" id=""></table-component>
                             </div>
                             
                             `;
@@ -97,7 +97,7 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Lista de Clientes</h3>
                                 </div>
-                                <table-component type="persona" id=""></table-component>
+                                <table-component type="idResponsable" id=""></table-component>
                             </div>
                             `;
                             break;
@@ -108,7 +108,7 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Manejo de Estados</h3>
                                 </div>
-                                <table-component type="estado" id=""></table-component>
+                                <table-component type="idEstado" id=""></table-component>
                             </div>
                             `;
                             break;

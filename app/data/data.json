@@ -1,7 +1,7 @@
 {
   "activos": [
     {
-      "id ": "",
+      "id ": "1",
       "CodTransaccion": "",
       "NroFormulario": "",
       "idMarca": "",
@@ -11,58 +11,58 @@
       "idProveedor": "",
       "NroSerial": "",
       "idEmpresaResponsable": "",
-      "idEstado": "",
-      "id": "ec10"
-    },
-    {
-      "id": "2d76",
-      "": ""
+      "idEstado": ""
     }
   ],
-  "CategoriaActivo": [
-    {
-      "id": "",
-      "Nombre": ""
-    }
+  "categoriaActivos": [
+    { "id": 1, "Nombre": "Equipo de computo" },
+    { "id": 2, "Nombre": "Electrodomestico" },
+    { "id": 3, "Nombre": "Juego" }
   ],
   "marcas": [
+    { "id": 1, "Nombre": "LG" },
+    { "id": 2, "Nombre": "COMPUMAX" },
+    { "id": 3, "Nombre": "LOGITECH" },
+    { "id": 4, "Nombre": "BENQ" },
+    { "id": 5, "Nombre": "ASUS" },
+    { "id": 6, "Nombre": "LENOVO" },
+    { "id": 7, "Nombre": "HP" }
+  ],
+  "tipoPersonas": [
     {
       "id": "",
       "Nombre": ""
     }
   ],
-  "TipoPersona": [
+  "tipoMovActivos": [
     {
       "id": "",
       "Nombre": ""
     }
   ],
-  "tipoMovActivo": [
-    {
-      "id": "",
-      "Nombre": ""
-    }
+  "tipoActivos": [
+    { "id": 1, "Nombre": "Monitor" },
+    { "id": 2, "Nombre": "CPU" },
+    { "id": 3, "Nombre": "Teclado" },
+    { "id": 4, "Nombre": "Mouse" },
+    { "id": 5, "Nombre": "Aire Acondicionado" },
+    { "id": 6, "Nombre": "Portatil" },
+    { "id": 7, "Nombre": "Impresora" }
   ],
-  "TipoActivo": [
-    {
-      "id": "",
-      "Nombre": ""
-    }
+  "estados": [
+    { "id": 0, "Nombre": "No asignado" },
+    { "id": 1, "Nombre": "Asignado" },
+    { "id": 2, "Nombre": "Dado de baja por daño" },
+    { "id": 3, "Nombre": "En reparación y/o Garantia" }
   ],
-  "estado": [
-    {
-      "id": "",
-      "Nombre": ""
-    }
-  ],
-  "Proveedor": [
+  "proveedores": [
     {
       "id": "",
       "Nombre": "",
       "Email": ""
     }
   ],
-  "historialActivo": [
+  "historialActivos": [
     {
       "id": "",
       "idActivo": "",
@@ -71,7 +71,7 @@
       "idEstado": ""
     }
   ],
-  "TelefonoPersona": [
+  "telefonoPersonas": [
     {
       "id": "",
       "Nro": "",
@@ -79,7 +79,7 @@
       "idPersona": ""
     }
   ],
-  "asignacion": [
+  "asignaciones": [
     {
       "id": "",
       "Fecha": "",

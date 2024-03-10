@@ -8,7 +8,7 @@ class JsonService {
 
     async loadData(endPoint){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}s`,{
+            const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}`,{
                 method: "GET",
                 headers: this.HEADERS
             }).then(data => data.json())
@@ -21,7 +21,7 @@ class JsonService {
 
     async loadDataId(endPoint, id){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}s/${id}`,{
+            const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}/${id}`,{
                 method: "GET",
                 headers: this.HEADERS
             }).then(data => data.json())
@@ -34,7 +34,7 @@ class JsonService {
 
     async saveData(endPoint, object){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}s`,{
+            const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}`,{
                 method: "POST",
                 headers: this.HEADERS,
                 body: JSON.stringify(object)
@@ -48,7 +48,7 @@ class JsonService {
 
     async updateData(endPoint, object){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}/${object.id}`,{
+            const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}/${object.id}`,{
                 method: "PUT",
                 headers: this.HEADERS,
                 body: JSON.stringify(object)
@@ -63,7 +63,7 @@ class JsonService {
 
     async deleteData(endPoint, id){
         try {
-            const data = await fetch(`${this.URL_API}${endPoint}/${id}`,{
+            const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}/${id}`,{
                 method: "DELETE",
                 headers: this.HEADERS
             })
@@ -73,6 +73,27 @@ class JsonService {
             return {}
         }
 
+    }
+
+    mapKeys(data) {
+        const keyMap = {
+            "idActivo": "activos",
+            "idCategoria": "categoriaActivos",
+            "idMarca": "marcas",
+            "TipoPersona": "tipoPersonas",
+            "TipoMovimientoActivo": "tipoMovActivos",
+            "idTipo": "tipoActivos",
+            "idEstado": "estados",
+            "idProveedor": "proveedores",
+            "HistorialActivo": "historialActivos",
+            "TelefonoPersona": "telefonoPersonas",
+            "Asignacion": "asignaciones",
+            "idResponsable": "personas",
+            "idEmpresaResponsable": "personas",
+            "DetalleMovimiento": "detalleMovimiento"
+        };
+    
+        return keyMap[data] || data;
     }
 }
 

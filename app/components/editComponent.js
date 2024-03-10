@@ -25,12 +25,31 @@ export class editComponent extends HTMLElement {
                 </button>
             </div>
         </section>
+        <section id="result-search">
+        </section>
         `
         const html = template.content.cloneNode((true));
         html.querySelector('#search').addEventListener('click', async (e) => {
-            const search = document.querySelector('#search-input');
-            const objectFind = data.find(element => element.nombre.includes(search));
-            this.innerHTML = `
+            const search = document.querySelector('#search-input').value;
+            const objectFind = data.find(element => element.Nombre? 
+                element.Nombre.includes(search):
+                element.id.includes(search));
+            if (!objectFind) {
+                document.querySelector('#result-search').innerHTML = `
+                <div class="table-container">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>No se Encontró:</th>
+                                <td>${search}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                `
+                return
+            }
+            document.querySelector('#result-search').innerHTML = `
             <div class="table-container">
                 <table class="table">
                     <tbody>
@@ -42,12 +61,16 @@ export class editComponent extends HTMLElement {
                         `).join('')}
                     </tbody>
                 </table>
-                <button id="edit" class="button btn-info">
+                <button id="edit-button" class="button btn-info">
                     <i class='bx bx-edit-alt' ></i>
                 </button>
             </div>
             `
+            document.querySelector('#edit-button').addEventListener('click', (e) => {
+                
+            })
         })
+      
         this.appendChild(html);
 
     };
