@@ -19,7 +19,7 @@ export class editComponent extends HTMLElement {
         <section>
             <div class="form-group">
                 <label class="d-none" for="id">ID</label>
-                <input class="form-control" id="search-input" placeholder="Buscar ${type}">
+                <input class="form-control" id="search-input" placeholder="Buscar ${jsonService.mapKeys(type)}">
                 <button id="search">
                     <i class='bx bx-search-alt-2'></i>
                 </button>
@@ -61,13 +61,16 @@ export class editComponent extends HTMLElement {
                         `).join('')}
                     </tbody>
                 </table>
-                <button id="edit-button" class="button btn-info">
+                <button id="edit-button" data-id='[${objectFind.id}]' class="button btn-info">
                     <i class='bx bx-edit-alt' ></i>
                 </button>
             </div>
             `
             document.querySelector('#edit-button').addEventListener('click', (e) => {
-                
+                const id = JSON.parse(e.target.dataset.id)
+                document.querySelector('#result-search').innerHTML = `
+                    <add-component type="${type}" id="${id[0]}"></add-component>
+                `
             })
         })
       

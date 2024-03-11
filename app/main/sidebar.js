@@ -1,3 +1,5 @@
+import { jsonService } from "../components/jsonService.js";
+
 const homeTemplate = `
 <h1>Gracias Por Preferirnos</h2>
 
@@ -23,20 +25,20 @@ template.innerHTML =  /*HTML*/`
 			<li>
 				<a id="noEvent" href="#"><i class='bx bxs-inbox icon' ></i>Asignación <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a data-link='["asignacion"]' href="#">Crear Asignación</a></li>
-					<li><a data-link='["asignacion"]' href="#">Asignar Activo</a></li>
-					<li><a data-link='["asignacion"]' href="#">Retornar Activo</a></li>
+					<li><a data-link='["asignacionCreate"]' href="#">Crear Asignación</a></li>
+					<li><a data-link='["asignacionActivo"]' href="#">Asignar Activo</a></li>
+					<li><a data-link='["asignacionRetorn"]' href="#">Retornar Activo</a></li>
 				</ul>
 			</li>
-			<li><a data-link='["activo"]' href="#"><i class='bx bxs-chart icon' ></i> Activos</a></li>
-			<li><a data-link='["marca"]' href="#"><i class='bx bxs-widget icon' ></i> Marcas</a></li>
-			<li><a data-link='["persona"]' href="#"><i class='bx bxs-widget icon' ></i> Personas</a></li>
-			<li><a data-link='["estado"]' href="#"><i class='bx bxs-widget icon' ></i> Estados</a></li>
+			<li><a data-link='["idActivo"]' href="#"><i class='bx bxs-chart icon' ></i> Activos</a></li>
+			<li><a data-link='["idMarca"]' href="#"><i class='bx bxs-widget icon' ></i> Marcas</a></li>
+			<li><a data-link='["idResponsable"]' href="#"><i class='bx bxs-widget icon' ></i> Personas</a></li>
+			<li><a data-link='["idEstado"]' href="#"><i class='bx bxs-widget icon' ></i> Estados</a></li>
 			<li class="divider" data-text="table and forms">Consultar</li>
 
-			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Persona</a></li>
-			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Movimiento Activo</a></li>
-			<li><a href="#"><i class='bx bx-table icon' ></i> Tipo Activo</a></li>
+			<li><a data-link='["TipoPersona"]' href="#"><i class='bx bx-table icon' ></i> Tipo Persona</a></li>
+			<li><a data-link='["TipoMovimientoActivo"]' href="#"><i class='bx bx-table icon' ></i> Tipo Movimiento Activo</a></li>
+			<li><a data-link='["idTipo"]' href="#"><i class='bx bx-table icon' ></i> Tipo Activo</a></li>
 		</ul>
 	</section>
 <!-- SIDEBAR -->
@@ -67,54 +69,26 @@ export class sideBar extends HTMLElement {
                         case 'i':
                             main.innerHTML = homeTemplate;
                             break;
-                        case 'activo':
+                        case 'asignacionCreate':
                             main.innerHTML = `
                             <div class="content-data">
                                 <div class="head">
-                                    <h3>Manejo de Activos</h3>
+                                    <h3>Crear Una Asignacion</h3>
                                 </div>
                                 <table-component type="idActivo"></table-component>
-                            </div>
-                            
-                            `;
-                            break;
-    
-                        case 'marca':
-                            main.innerHTML = `
-                            <div class="content-data">
-                                <div class="head">
-                                    <h3>Manejo de Marcas</h3>
-                                </div>
-                                <table-component type="idMarca" id=""></table-component>
-                            </div>
-                            
-                            `;
-                            break;
-    
-                        case 'persona':
-                            main.innerHTML = `
-                            <div class="content-data">
-                                <div class="head">
-                                    <h3>Lista de Clientes</h3>
-                                </div>
-                                <table-component type="idResponsable" id=""></table-component>
-                            </div>
-                            `;
-                            break;
-
-                         case 'estado':
-                            main.innerHTML = `
-                            <div class="content-data">
-                                <div class="head">
-                                    <h3>Manejo de Estados</h3>
-                                </div>
-                                <table-component type="idEstado" id=""></table-component>
                             </div>
                             `;
                             break;
     
                         default:
-                            main.innerHTML = `<h1>Page Not Fount</h1>`;
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Manejo de ${jsonService.mapKeys(url[0])}</h3>
+                                </div>
+                                <table-component type="${url[0]}" id=""></table-component>
+                            </div>
+                            `;
                             break;
                     };
                     e.stopImmediatePropagation();

@@ -2,8 +2,9 @@
 
 // Modelo para activos
 export class Activo {
-    constructor(id, CodTransaccion, NroFormulario, idMarca, idCategoria, idTipo, ValorUnitario, idProveedor, NroSerial, idEmpresaResponsable, idEstado) {
+    constructor(id,Nombre, CodTransaccion, NroFormulario, idMarca, idCategoria, idTipo, ValorUnitario, idProveedor, NroSerial, idEmpresaResponsable, idEstado) {
         this.id = id;
+        this.Nombre = Nombre;
         this.CodTransaccion = CodTransaccion;
         this.NroFormulario = NroFormulario;
         this.idMarca = idMarca;
@@ -19,6 +20,11 @@ export class Activo {
         <div class="form-group">
             <label for="id">ID</label>
             <input class="form-control" id="id" placeholder="Ingresa el ID" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="Nombre">Nª Serial</label>
+            <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre del producto">
         </div>
 
         <div class="form-group">
@@ -102,8 +108,8 @@ export class CategoriaActivo {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de la Categoria">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de la Categoria">
     </div>
     
     `
@@ -122,8 +128,8 @@ export class Marca {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de la Marca">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de la Marca">
     </div>
     
     `
@@ -142,8 +148,8 @@ export class TipoPersona {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Persona">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de Tipo Persona">
     </div>
     
     `
@@ -162,8 +168,8 @@ export class TipoMovimientoActivo {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Movimiento Activo">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de Tipo Movimiento Activo">
     </div>
     
     `
@@ -182,8 +188,8 @@ export class TipoActivo {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de Tipo Activo">
     </div>
     
     `
@@ -202,8 +208,8 @@ export class Estado {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de Tipo Activo">
     </div>
     
     `
@@ -223,13 +229,13 @@ export class Proveedor {
     </div>
 
     <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input class="form-control" id="nombre" placeholder="Ingresa el Nombre de Tipo Activo">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre de Tipo Activo">
     </div>
 
     <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" id="email" placeholder="Ingresa el Correo Electrónico">
+        <label for="Email">Email</label>
+        <input class="form-control" id="Email" placeholder="Ingresa el Correo Electrónico">
     </div>
     
     `
@@ -340,13 +346,13 @@ export class Persona {
         </div>
 
         <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input class="form-control" id="nombre" placeholder="Ingresa el Nombre">
+            <label for="Nombre">Nombre</label>
+            <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre">
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" id="email" placeholder="Ingresa el Correo Electrónico">
+            <label for="Email">Email</label>
+            <input class="form-control" id="Email" placeholder="Ingresa el Correo Electrónico">
         </div>
 
         <div class="form-group">
@@ -423,6 +429,6 @@ export function getModel(type) {
         case 'DetalleMovimiento':
             return new DetalleMovimiento();
         default:
-            throw new Error(`Modelo '${mappedType}' no encontrado`);
+            throw new Error(`Modelo '${type}' no encontrado`);
     }
 }

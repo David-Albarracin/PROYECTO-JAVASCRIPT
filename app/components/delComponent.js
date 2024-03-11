@@ -1,3 +1,6 @@
+import { jsonService } from "./jsonService.js";
+import { Swal } from "./sweetAlert.js";
+
 //TEMPLATE
 const template = document.createElement("template");
 template.innerHTML =  /*HTML*/``
@@ -10,9 +13,72 @@ export class delComponent extends HTMLElement {
         this.render();
     }
 
-    render(){
+    async render() {
+        const type = this.getAttribute("type")
+        const data = await jsonService.loadData(type)
         //load Component and template  
+        template.innerHTML =  /*HTML*/`
+        <section>
+            <div class="form-group">
+                <label class="d-none" for="id">ID</label>
+                <input class="form-control" id="search-input" placeholder="Buscar ${jsonService.mapKeys(type)}">
+                <button id="search">
+                    <i class='bx bx-search-alt-2'></i>
+                </button>
+            </div>
+        </section>
+        <section id="result-search">
+        </section>
+        `
         const html = template.content.cloneNode((true));
+        html.querySelector('#search').addEventListener('click', async (e) => {
+            const search = document.querySelector('#search-input').value;
+            const regex = new RegExp(search, 'i'); 
+            const objectFind = data.find(element =>
+                (element.Nombre && regex.test(element.Nombre)) ||
+                (element.id && regex.test(element.id))
+            );
+            if (!objectFind) {
+                document.querySelector('#result-search').innerHTML = `
+                <div class="table-container">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>No se Encontró:</th>
+                                <td>${search}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                `
+                return
+            }
+            document.querySelector('#result-search').innerHTML = `
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        ${Object.entries(objectFind).map(([key, value]) => `
+                            <tr>
+                                <th>${key}:</th>
+                                <td>${value}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                <button id="del-button" data-id='[${objectFind.id}]' class="button btn-danger">
+                    <i class='bx bx-trash-alt' ></i>
+                </button>
+            </div>
+            `
+            document.querySelector('#del-button').addEventListener('click', (e) => {
+                const id = JSON.parse(e.target.dataset.id)
+                jsonService.deleteData(type, id).then(response => {
+                    Swal.fire(response)
+                    document.getElementById('dialog').close();
+                });
+            })
+        })
+      
         this.appendChild(html);
 
     };

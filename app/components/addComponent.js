@@ -46,60 +46,73 @@ export class addComponent extends HTMLElement {
     
 
     async createForm(){
+        const typeAdd = this.getAttribute('type')
         //Verificar si es Crear uno Nuevo o editar
         const idObject = this.getAttribute('id');
-        const isEdit = idObject? jsonService.loadDataId(idObject):false
+        const isEdit = idObject? await jsonService.loadDataId(typeAdd, idObject):false
 
         //Cargar el Modelo Dependiendo de lo que se requiera
-        const typeAdd = this.getAttribute('type')
         const formContent = document.createElement('form')
         formContent.id = typeAdd
         const dataObject = new getModel(typeAdd)
         formContent.innerHTML = dataObject.template
 
+        formContent.querySelector('#id').value =  await jsonService.loadData(typeAdd).then(e => e.length + 1)
+        if (isEdit) {
+            console.log(isEdit);
+            const inputs = formContent.querySelectorAll('input');
+            const selects = formContent.querySelectorAll('select');
+            // Iterar sobre los inputs y añadir sus valores al objeto formData
+            inputs.forEach(input => {
+                input.value = isEdit[input.id];
+            });
+
+            // Iterar sobre los selects y añadir sus valores al objeto formData
+            selects.forEach(select => {
+                select.value = isEdit[select.id];
+            });
+        }
         //Crear el Botón para editar o guardar Dependiendo
         const button = document.createElement('button')
         button.classList.add('button', 'btn-success', 'full-width');
 
         button.textContent = isEdit? "Actualizar":"Guardar"
-        if (isEdit) {
-            button.addEventListener('click', (e)=>{
+        button.addEventListener('click', (e)=>{
+            // Evitar que se envíe el formulario
+            e.preventDefault();
 
-            })
-        }else{
-            button.addEventListener('click', (e)=>{
-                // Evitar que se envíe el formulario
-                e.preventDefault();
+            // Obtener el formulario por su ID
+            const form = document.getElementById(typeAdd);
 
-                // Obtener el formulario por su ID
-                const form = document.getElementById(typeAdd);
+            // Obtener los valores de los inputs y selects
+            const formData = {};
+            const inputs = form.querySelectorAll('input');
+            const selects = form.querySelectorAll('select');
 
-                // Obtener los valores de los inputs y selects
-                const formData = {};
-                const inputs = form.querySelectorAll('input');
-                const selects = form.querySelectorAll('select');
+            // Iterar sobre los inputs y añadir sus valores al objeto formData
+            inputs.forEach(input => {
+                formData[input.id] = input.value;
+            });
 
-                // Iterar sobre los inputs y añadir sus valores al objeto formData
-                inputs.forEach(input => {
-                    formData[input.id] = input.value;
+            // Iterar sobre los selects y añadir sus valores al objeto formData
+            selects.forEach(select => {
+                formData[select.id] = select.value;
+            });
+
+            // Guardar los datos utilizando jsonService.saveData
+            if (isEdit) {
+                jsonService.updateData(typeAdd, formData).then(response => {
+                    Swal.fire(response)
+                    document.getElementById('dialog').close();
                 });
-
-                // Iterar sobre los selects y añadir sus valores al objeto formData
-                selects.forEach(select => {
-                    formData[select.id] = select.value;
-                });
-
-                // Guardar los datos utilizando jsonService.saveData
+            } else {
                 jsonService.saveData(typeAdd, formData).then(response => {
                     Swal.fire(response)
                     document.getElementById('dialog').close();
                 });
-
-
-            })
-        }
+            }
+        })
         formContent.appendChild(button);
-        formContent.querySelector('#id').value =  await jsonService.loadData(typeAdd).then(e => e.length + 1)
         return formContent
     }
 
