@@ -50,15 +50,16 @@ export class Activo {
         <div class="form-group">
             <label for="idCategoria">Selecciona la Categoria</label>
             <select class="form-control" id="idCategoria" placeholder="Marcas...">
-                <opcion></option>
+                <opcion value ="01">Equipo de Computo</option>
+                <opcion value ="02">Electrodomesticos</option>
+                <opcion value ="03">Juegos</option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idTipo">Selecciona el Tipo</label>
             <select class="form-control" id="idTipo" placeholder="Tipo de Producto">
-                <opcion></option>
-                <option value="NoFound">DEFECTO</option>
+                <option value="NoFo">DEFECTO</option>
             </select>
         </div>
         
@@ -431,20 +432,6 @@ export function getModel(type) {
 
 
 /*
-"categorias": [
-    {
-      "id": "01",
-      "nombre": "Equipo de computo"
-    },
-    {
-      "id": "02",
-      "nombre": "Electrodomestico"
-    },
-    {
-      "id": "03",
-      "nombre": "Juego"
-    }
-  ],
   "marcas": [
     {
       "id": "01",

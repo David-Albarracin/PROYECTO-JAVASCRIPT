@@ -14,7 +14,7 @@ export class addComponent extends HTMLElement {
     }
 
     
-
+s
     render(){
         //load Component and template
         const html = template.content.cloneNode((true));
