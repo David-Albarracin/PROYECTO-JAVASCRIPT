@@ -57,9 +57,8 @@ export class addComponent extends HTMLElement {
         const dataObject = new getModel(typeAdd)
         formContent.innerHTML = dataObject.template
 
-        formContent.querySelector('#id').value =  await jsonService.loadData(typeAdd).then(e => e.length + 1)
+        formContent.querySelector('#id').value =  await jsonService.loadData(typeAdd).then(e => Number(e.pop().id )+ 1)
         if (isEdit) {
-            console.log(isEdit);
             const inputs = formContent.querySelectorAll('input');
             const selects = formContent.querySelectorAll('select');
             // Iterar sobre los inputs y añadir sus valores al objeto formData
@@ -91,12 +90,12 @@ export class addComponent extends HTMLElement {
 
             // Iterar sobre los inputs y añadir sus valores al objeto formData
             inputs.forEach(input => {
-                formData[input.id] = input.value;
+                formData[input.id] = input.value.toLowerCase();
             });
 
             // Iterar sobre los selects y añadir sus valores al objeto formData
             selects.forEach(select => {
-                formData[select.id] = select.value;
+                formData[select.id] = select.value.toLowerCase();
             });
 
             // Guardar los datos utilizando jsonService.saveData

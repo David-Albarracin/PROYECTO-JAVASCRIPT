@@ -67,7 +67,6 @@ class JsonService {
                 method: "DELETE",
                 headers: this.HEADERS
             })
-            console.log(data)
             return data
         } catch (error) {
             return {}

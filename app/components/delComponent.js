@@ -32,13 +32,13 @@ export class delComponent extends HTMLElement {
         `
         const html = template.content.cloneNode((true));
         html.querySelector('#search').addEventListener('click', async (e) => {
-            const search = document.querySelector('#search-input').value;
-            const regex = new RegExp(search, 'i'); 
-            const objectFind = data.find(element =>
-                (element.Nombre && regex.test(element.Nombre)) ||
-                (element.id && regex.test(element.id))
-            );
-            if (!objectFind) {
+            const search = document.querySelector('#search-input').value?.toLowerCase();
+            const objectsFound = data.filter(element => {
+                return (element.Nombre && element.Nombre.includes(search)) ||
+                       (element.id && element.id.includes(search));
+            });
+            
+            if (!objectsFound.length) {
                 document.querySelector('#result-search').innerHTML = `
                 <div class="table-container">
                     <table class="table">
@@ -53,30 +53,38 @@ export class delComponent extends HTMLElement {
                 `
                 return
             }
-            document.querySelector('#result-search').innerHTML = `
-            <div class="table-container">
-                <table class="table">
-                    <tbody>
-                        ${Object.entries(objectFind).map(([key, value]) => `
-                            <tr>
-                                <th>${key}:</th>
-                                <td>${value}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                <button id="del-button" data-id='[${objectFind.id}]' class="button btn-danger">
-                    <i class='bx bx-trash-alt' ></i>
-                </button>
-            </div>
-            `
-            document.querySelector('#del-button').addEventListener('click', (e) => {
-                const id = JSON.parse(e.target.dataset.id)
-                jsonService.deleteData(type, id).then(response => {
-                    Swal.fire(response)
-                    document.getElementById('dialog').close();
+            document.querySelector('#result-search').innerHTML = ""
+            objectsFound.forEach(element => {
+                const tableContainer = document.createElement('div');
+                tableContainer.classList.add('table-container');
+
+                tableContainer.innerHTML = `
+                    <table class="table">
+                        <tbody>
+                            ${Object.entries(element).map(([key, value]) => `
+                                <tr>
+                                    <th>${key}:</th>
+                                    <td>${value}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    <button data-id='[${element.id}]' class="button btn-danger" data-target-id="${element.id}">
+                        <i class='bx bx-trash-alt'></i>
+                    </button>
+                `;
+
+                document.querySelector('#result-search').appendChild(tableContainer);
+
+                const button = tableContainer.querySelector(`[data-target-id="${element.id}"]`);
+                button.addEventListener('click', (e) => {
+                    const id = JSON.parse(e.target.dataset.id)
+                    jsonService.deleteData(type, id).then(response => {
+                        Swal.fire(response);
+                        document.getElementById('dialog').close();
+                    });
                 });
-            })
+            });
         })
       
         this.appendChild(html);

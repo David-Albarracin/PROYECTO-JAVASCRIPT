@@ -30,11 +30,12 @@ export class editComponent extends HTMLElement {
         `
         const html = template.content.cloneNode((true));
         html.querySelector('#search').addEventListener('click', async (e) => {
-            const search = document.querySelector('#search-input').value;
-            const objectFind = data.find(element => element.Nombre? 
-                element.Nombre.includes(search):
-                element.id.includes(search));
-            if (!objectFind) {
+            const search = document.querySelector('#search-input').value?.toLowerCase();
+            const objectsFound = data.filter(element => {
+                return (element.Nombre && element.Nombre.includes(search)) ||
+                       (element.id && element.id.includes(search));
+            });            
+            if (!objectsFound) {
                 document.querySelector('#result-search').innerHTML = `
                 <div class="table-container">
                     <table class="table">
@@ -49,29 +50,37 @@ export class editComponent extends HTMLElement {
                 `
                 return
             }
-            document.querySelector('#result-search').innerHTML = `
-            <div class="table-container">
-                <table class="table">
-                    <tbody>
-                        ${Object.entries(objectFind).map(([key, value]) => `
-                            <tr>
-                                <th>${key}:</th>
-                                <td>${value}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                <button id="edit-button" data-id='[${objectFind.id}]' class="button btn-info">
-                    <i class='bx bx-edit-alt' ></i>
-                </button>
-            </div>
-            `
-            document.querySelector('#edit-button').addEventListener('click', (e) => {
-                const id = JSON.parse(e.target.dataset.id)
-                document.querySelector('#result-search').innerHTML = `
-                    <add-component type="${type}" id="${id[0]}"></add-component>
-                `
-            })
+            document.querySelector('#result-search').innerHTML = ""
+            objectsFound.forEach(element => {
+                const tableContainer = document.createElement('div');
+                tableContainer.classList.add('table-container');
+
+                tableContainer.innerHTML = `
+                    <table class="table">
+                        <tbody>
+                            ${Object.entries(element).map(([key, value]) => `
+                                <tr>
+                                    <th>${key}:</th>
+                                    <td>${value}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    <button data-id='[${element.id}]' class="button btn-info" data-target-id="${element.id}">
+                        <i class='bx bx-edit-alt'></i>
+                    </button>
+                `;
+                
+                document.querySelector('#result-search').appendChild(tableContainer);
+
+                const button = tableContainer.querySelector(`[data-target-id="${element.id}"]`);
+                button.addEventListener('click', (e) => {
+                    const id = JSON.parse(e.target.dataset.id)
+                    document.querySelector('#result-search').innerHTML = `
+                        <add-component type="${type}" id="${id[0]}"></add-component>
+                    `
+                });
+            });
         })
       
         this.appendChild(html);

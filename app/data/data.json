@@ -1,7 +1,7 @@
 {
   "activos": [
     {
-      "id ": "1",
+      "id": "1",
       "CodTransaccion": "",
       "NroFormulario": "",
       "idMarca": "",
@@ -15,18 +15,18 @@
     }
   ],
   "categoriaActivos": [
-    { "id": 1, "Nombre": "Equipo de computo" },
-    { "id": 2, "Nombre": "Electrodomestico" },
-    { "id": 3, "Nombre": "Juego" }
+    { "id": "1", "Nombre": "equipo de computo" },
+    { "id": "2", "Nombre": "electrodomestico" },
+    { "id": "3", "Nombre": "juego" }
   ],
   "marcas": [
-    { "id": 1, "Nombre": "LG" },
-    { "id": 2, "Nombre": "COMPUMAX" },
-    { "id": 3, "Nombre": "LOGITECH" },
-    { "id": 4, "Nombre": "BENQ" },
-    { "id": 5, "Nombre": "ASUS" },
-    { "id": 6, "Nombre": "LENOVO" },
-    { "id": 7, "Nombre": "HP" }
+    { "id": "1", "Nombre": "lg" },
+    { "id": "2", "Nombre": "compumax" },
+    { "id": "3", "Nombre": "logitech" },
+    { "id": "4", "Nombre": "benq" },
+    { "id": "5", "Nombre": "asus" },
+    { "id": "6", "Nombre": "lenovo" },
+    { "id": "7", "Nombre": "hp" }
   ],
   "tipoPersonas": [
     {
@@ -41,19 +41,19 @@
     }
   ],
   "tipoActivos": [
-    { "id": 1, "Nombre": "Monitor" },
-    { "id": 2, "Nombre": "CPU" },
-    { "id": 3, "Nombre": "Teclado" },
-    { "id": 4, "Nombre": "Mouse" },
-    { "id": 5, "Nombre": "Aire Acondicionado" },
-    { "id": 6, "Nombre": "Portatil" },
-    { "id": 7, "Nombre": "Impresora" }
+    { "id": "1", "Nombre": "monitor" },
+    { "id": "2", "Nombre": "cpu" },
+    { "id": "3", "Nombre": "teclado" },
+    { "id": "4", "Nombre": "mouse" },
+    { "id": "5", "Nombre": "aire acondicionado" },
+    { "id": "6", "Nombre": "portatil" },
+    { "id": "7", "Nombre": "impresora" }
   ],
   "estados": [
-    { "id": 0, "Nombre": "No asignado" },
-    { "id": 1, "Nombre": "Asignado" },
-    { "id": 2, "Nombre": "Dado de baja por daño" },
-    { "id": 3, "Nombre": "En reparación y/o Garantia" }
+    { "id": "0", "Nombre": "no asignado" },
+    { "id": "1", "Nombre": "asignado" },
+    { "id": "2", "Nombre": "dado de baja por daño" },
+    { "id": "3", "Nombre": "en reparación y/o garantia" }
   ],
   "proveedores": [
     {
