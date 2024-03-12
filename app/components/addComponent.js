@@ -79,7 +79,7 @@ export class addComponent extends HTMLElement {
             const button = document.createElement('button')
             button.classList.add('button', 'btn-success', 'full-width');
             button.textContent = isEdit? "Actualizar":"Guardar"
-            button.addEventListener('click', (e)=>{
+            button.addEventListener('click', async (e)=>{
                 // Evitar que se envíe el formulario
                 e.preventDefault();
     
@@ -106,17 +106,32 @@ export class addComponent extends HTMLElement {
                     jsonService.updateData(typeAdd, formData).then(response => {
                         Swal.fire(response)
                         document.getElementById('dialog').close();
+                        this.updateStatus(formData.idActivo);
                     });
                 } else {
-                    jsonService.saveData(typeAdd, formData).then(response => {
+                    jsonService.saveData(typeAdd, formData).then(async response => {
                         Swal.fire(response)
                         document.getElementById('dialog').close();
+                        this.updateStatus(formData.idActivo);
                     });
                 }
+                
             })
             formContent.appendChild(button);
         }
         return formContent
+    }
+
+    async updateStatus(idActivo){
+        const typeAdd = this.getAttribute('type')
+        if (typeAdd == "DetalleMovimiento") {
+            const activo = await jsonService.loadDataId("activos", idActivo)
+            activo.idEstado = "1"
+            jsonService.updateData("activos", activo).then(response => {
+                Swal.fire(response)
+                document.getElementById('dialog').close();
+            });
+        }
     }
 
 }

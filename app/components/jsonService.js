@@ -6,6 +6,12 @@ class JsonService {
         "Content-Type": "application/json",
     }
 
+    /**
+     * 
+     * @param {string} endPoint Llave del map  
+     * @returns Array
+     */
+
     async loadData(endPoint){
         try {
             const data = await fetch(`${this.URL_API}${this.mapKeys(endPoint)}`,{

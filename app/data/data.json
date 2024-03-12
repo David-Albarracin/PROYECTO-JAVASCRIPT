@@ -3,31 +3,61 @@
     {
       "id": "1",
       "Nombre": "Mesa",
-      "CodTransaccion": "",
-      "NroFormulario": "",
-      "idMarca": "",
-      "idCategoria": "",
-      "idTipo": "",
-      "ValorUnitario": "",
-      "idProveedor": "",
-      "NroSerial": "",
-      "idEmpresaResponsable": "",
-      "idEstado": ""
+      "CodTransaccion": "1568498",
+      "NroFormulario": "5614594",
+      "idMarca": "1",
+      "idCategoria": "1",
+      "idTipo": "1",
+      "ValorUnitario": "10000",
+      "idProveedor": "1",
+      "NroSerial": "231654984",
+      "idEmpresaResponsable": "1",
+      "idEstado": "1"
     }
   ],
   "categoriaActivos": [
-    { "id": "1", "Nombre": "equipo de computo" },
-    { "id": "2", "Nombre": "electrodomestico" },
-    { "id": "3", "Nombre": "juego" }
+    {
+      "id": "1",
+      "Nombre": "equipo de computo"
+    },
+    {
+      "id": "2",
+      "Nombre": "electrodomestico"
+    },
+    {
+      "id": "3",
+      "Nombre": "juego"
+    }
   ],
   "marcas": [
-    { "id": "1", "Nombre": "lg" },
-    { "id": "2", "Nombre": "compumax" },
-    { "id": "3", "Nombre": "logitech" },
-    { "id": "4", "Nombre": "benq" },
-    { "id": "5", "Nombre": "asus" },
-    { "id": "6", "Nombre": "lenovo" },
-    { "id": "7", "Nombre": "hp" }
+    {
+      "id": "1",
+      "Nombre": "lg"
+    },
+    {
+      "id": "2",
+      "Nombre": "compumax"
+    },
+    {
+      "id": "3",
+      "Nombre": "logitech"
+    },
+    {
+      "id": "4",
+      "Nombre": "benq"
+    },
+    {
+      "id": "5",
+      "Nombre": "asus"
+    },
+    {
+      "id": "6",
+      "Nombre": "lenovo"
+    },
+    {
+      "id": "7",
+      "Nombre": "hp"
+    }
   ],
   "tipoPersonas": [
     {
@@ -42,19 +72,52 @@
     }
   ],
   "tipoActivos": [
-    { "id": "1", "Nombre": "monitor" },
-    { "id": "2", "Nombre": "cpu" },
-    { "id": "3", "Nombre": "teclado" },
-    { "id": "4", "Nombre": "mouse" },
-    { "id": "5", "Nombre": "aire acondicionado" },
-    { "id": "6", "Nombre": "portatil" },
-    { "id": "7", "Nombre": "impresora" }
+    {
+      "id": "1",
+      "Nombre": "monitor"
+    },
+    {
+      "id": "2",
+      "Nombre": "cpu"
+    },
+    {
+      "id": "3",
+      "Nombre": "teclado"
+    },
+    {
+      "id": "4",
+      "Nombre": "mouse"
+    },
+    {
+      "id": "5",
+      "Nombre": "aire acondicionado"
+    },
+    {
+      "id": "6",
+      "Nombre": "portatil"
+    },
+    {
+      "id": "7",
+      "Nombre": "impresora"
+    }
   ],
   "estados": [
-    { "id": "0", "Nombre": "no asignado" },
-    { "id": "1", "Nombre": "asignado" },
-    { "id": "2", "Nombre": "dado de baja por daño" },
-    { "id": "3", "Nombre": "en reparación y/o garantia" }
+    {
+      "id": "0",
+      "Nombre": "no asignado"
+    },
+    {
+      "id": "1",
+      "Nombre": "asignado"
+    },
+    {
+      "id": "2",
+      "Nombre": "dado de baja por daño"
+    },
+    {
+      "id": "3",
+      "Nombre": "en reparación y/o garantia"
+    }
   ],
   "proveedores": [
     {
@@ -67,7 +130,7 @@
     {
       "id": "1",
       "idActivo": "1",
-      "Fecha": "",
+      "Fecha": "1111-11-11",
       "idResponsable": "1",
       "idEstado": "1"
     }
@@ -75,33 +138,39 @@
   "telefonoPersonas": [
     {
       "id": "1",
-      "Nro": "11",
-      "ubicacion": "1",
+      "Nro": "3214415202",
+      "ubicacion": "Florida",
       "idPersona": "1"
     }
   ],
   "asignaciones": [
     {
       "id": "1",
-      "Fecha": "",
-      "idResponsable": ""
+      "Fecha": "1111-11-11",
+      "idResponsable": "1"
     }
   ],
   "personas": [
     {
       "id": "1",
+      "Nombre": "CAMPUSLAND",
+      "Email": "test@gmail.com",
+      "idTipoPersona": "1"
+    },
+    {
+      "id": "1",
       "Nombre": "pepe",
-      "Email": "",
+      "Email": "test@gmail.com",
       "idTipoPersona": "1"
     }
   ],
   "detalleMovimiento": [
     {
       "id": "1",
-      "Fecha": "",
-      "idActivo": "",
-      "Comentario": "",
-      "idAsignacion": ""
+      "fecha": "1111-11-11",
+      "Comentario": "para trabajar",
+      "idActivo": "1",
+      "idAsignacion": "1"
     }
   ]
 }

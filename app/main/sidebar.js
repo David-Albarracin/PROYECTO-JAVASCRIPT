@@ -35,10 +35,11 @@ template.innerHTML =  /*HTML*/`
 			<li><a data-link='["idResponsable"]' href="#"><i class='bx bxs-widget icon' ></i> Personas</a></li>
 			<li><a data-link='["idEstado"]' href="#"><i class='bx bxs-widget icon' ></i> Estados</a></li>
 			<li class="divider" data-text="table and forms">Consultar</li>
-
+           
 			<li><a data-link='["TipoPersona"]' href="#"><i class='bx bx-table icon' ></i> Tipo Persona</a></li>
 			<li><a data-link='["TipoMovimientoActivo"]' href="#"><i class='bx bx-table icon' ></i> Tipo Movimiento Activo</a></li>
 			<li><a data-link='["idTipo"]' href="#"><i class='bx bx-table icon' ></i> Tipo Activo</a></li>
+            <li><a data-link='["TelefonoPersona"]' href="#"><i class='bx bx-table icon' ></i> Telefono Persona</a></li>
 		</ul>
 	</section>
 <!-- SIDEBAR -->
@@ -95,7 +96,7 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Retornar Activo</h3>
                                 </div>
-                                <table-component type="Asignacion"></table-component>
+                                <assignation-component type="Asignacion"></assignation-component>
                             </div>
                             `;
                             break;
