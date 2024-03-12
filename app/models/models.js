@@ -23,7 +23,7 @@ export class Activo {
         </div>
 
         <div class="form-group">
-            <label for="Nombre">Nª Serial</label>
+            <label for="Nombre">Nombre</label>
             <input class="form-control" id="Nombre" placeholder="Ingresa el Nombre del producto">
         </div>
 
@@ -50,21 +50,18 @@ export class Activo {
         <div class="form-group">
             <label for="idMarca">Selecciona la Marca</label>
             <select class="form-control" id="idMarca" placeholder="Marcas...">
-                <option></option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idCategoria">Selecciona la Categoria</label>
             <select class="form-control" id="idCategoria" placeholder="Marcas...">
-                <option></option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idTipo">Selecciona el Tipo</label>
             <select class="form-control" id="idTipo" placeholder="Tipo de Producto">
-                <option></option>
             </select>
         </div>
         
@@ -73,7 +70,6 @@ export class Activo {
         <div class="form-group">
             <label for="idProveedor">Selecciona el Proveedor</label>
             <select class="form-control" id="idProveedor" placeholder="Proveedores">
-                <option></option>
             </select>
         </div>
         
@@ -82,14 +78,12 @@ export class Activo {
         <div class="form-group">
             <label for="idEmpresaResponsable">Selecciona el ID del Responsable</label>
             <select class="form-control" id="idEmpresaResponsable" placeholder="Responsable">
-                <option></option>
             </select>
         </div>
         
         <div class="form-group">
             <label for="idEstado">Estado</label>
             <select class="form-control" id="idEstado" placeholder="ESTADO DEL PRODUCTO">
-                <option></option>
             </select>
         </div>
     `
@@ -258,12 +252,14 @@ export class HistorialActivo {
 
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
         </div>
 
         <div class="form-group">
-            <label for="responsable">Responsable</label>
-            <input class="form-control" id="responsable" placeholder="Ingresa el ID del Responsable">
+            <label for="idResponsable">Responsable</label>
+            <select class="form-control" id="idResponsable">
+                <!-- Opciones del select -->
+            </select>
         </div>
 
         <div class="form-group">
@@ -321,12 +317,14 @@ export class Asignacion {
 
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input class="form-control" id="fecha" placeholder="Ingresa la Fecha">
+            <input type="date" class="form-control" id="fecha" placeholder="Ingresa la Fecha">
         </div>
 
         <div class="form-group">
-            <label for="responsable">Responsable</label>
-            <input class="form-control" id="responsable" placeholder="Ingresa el ID del Responsable">
+            <label for="idResponsable">ID RESPONSABLE</label>
+            <select class="form-control" id="idResponsable">
+                <!-- Opciones del select -->
+            </select>
         </div>
     `;
 }
@@ -356,8 +354,10 @@ export class Persona {
         </div>
 
         <div class="form-group">
-            <label for="tipoPersona">Tipo de Persona</label>
-            <input class="form-control" id="tipoPersona" placeholder="Ingresa el ID del Tipo de Persona">
+            <label for="idTipoPersona">Tipo Persona</label>
+            <select class="form-control" id="idTipoPersona">
+                <!-- Opciones del select -->
+            </select>
         </div>
     `;
 }
@@ -383,18 +383,22 @@ export class DetalleMovimiento {
         </div>
 
         <div class="form-group">
-            <label for="activo">Activo</label>
-            <input class="form-control" id="activo" placeholder="Ingresa el ID del Activo">
+            <label for="idActivo">ID ACTIVO</label>
+            <select class="form-control" id="idActivo">
+                <!-- Opciones del select -->
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="comentario">Comentario</label>
-            <input class="form-control" id="comentario" placeholder="Ingresa el Comentario">
+            <label for="Comentario">Comentario</label>
+            <input class="form-control" id="Comentario" placeholder="Ingresa el Comentario">
         </div>
 
         <div class="form-group">
-            <label for="asignacion">Asignación</label>
-            <input class="form-control" id="asignacion" placeholder="Ingresa el ID de la Asignación">
+            <label for="idAsignacion">ID ASIGNACION</label>
+            <select class="form-control" id="idAsignacion">
+                <!-- Opciones del select -->
+            </select>
         </div>
     `;
 }

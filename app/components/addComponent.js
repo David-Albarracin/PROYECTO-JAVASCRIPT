@@ -33,7 +33,7 @@ export class addComponent extends HTMLElement {
                     data.forEach(element => {
                         const option = document.createElement("option");
                         option.value = element.id;
-                        option.textContent = element.Nombre;
+                        option.textContent = element.Nombre? element.Nombre: element.id;
                         select.appendChild(option);
                     });
                 })
@@ -49,6 +49,7 @@ export class addComponent extends HTMLElement {
         const typeAdd = this.getAttribute('type')
         //Verificar si es Crear uno Nuevo o editar
         const idObject = this.getAttribute('id');
+        const onlyView = this.getAttribute('show');
         const isEdit = idObject? await jsonService.loadDataId(typeAdd, idObject):false
 
         //Cargar el Modelo Dependiendo de lo que se requiera
@@ -64,54 +65,57 @@ export class addComponent extends HTMLElement {
             // Iterar sobre los inputs y añadir sus valores al objeto formData
             inputs.forEach(input => {
                 input.value = isEdit[input.id];
+                input.disabled = onlyView? true: false
             });
 
             // Iterar sobre los selects y añadir sus valores al objeto formData
             selects.forEach(select => {
                 select.value = isEdit[select.id];
+                select.disabled = onlyView? true: false
             });
         }
-        //Crear el Botón para editar o guardar Dependiendo
-        const button = document.createElement('button')
-        button.classList.add('button', 'btn-success', 'full-width');
-
-        button.textContent = isEdit? "Actualizar":"Guardar"
-        button.addEventListener('click', (e)=>{
-            // Evitar que se envíe el formulario
-            e.preventDefault();
-
-            // Obtener el formulario por su ID
-            const form = document.getElementById(typeAdd);
-
-            // Obtener los valores de los inputs y selects
-            const formData = {};
-            const inputs = form.querySelectorAll('input');
-            const selects = form.querySelectorAll('select');
-
-            // Iterar sobre los inputs y añadir sus valores al objeto formData
-            inputs.forEach(input => {
-                formData[input.id] = input.value.toLowerCase();
-            });
-
-            // Iterar sobre los selects y añadir sus valores al objeto formData
-            selects.forEach(select => {
-                formData[select.id] = select.value.toLowerCase();
-            });
-
-            // Guardar los datos utilizando jsonService.saveData
-            if (isEdit) {
-                jsonService.updateData(typeAdd, formData).then(response => {
-                    Swal.fire(response)
-                    document.getElementById('dialog').close();
+        if (!onlyView) {
+            //Crear el Botón para editar o guardar Dependiendo
+            const button = document.createElement('button')
+            button.classList.add('button', 'btn-success', 'full-width');
+            button.textContent = isEdit? "Actualizar":"Guardar"
+            button.addEventListener('click', (e)=>{
+                // Evitar que se envíe el formulario
+                e.preventDefault();
+    
+                // Obtener el formulario por su ID
+                const form = document.getElementById(typeAdd);
+    
+                // Obtener los valores de los inputs y selects
+                const formData = {};
+                const inputs = form.querySelectorAll('input');
+                const selects = form.querySelectorAll('select');
+    
+                // Iterar sobre los inputs y añadir sus valores al objeto formData
+                inputs.forEach(input => {
+                    formData[input.id] = input.value.toLowerCase();
                 });
-            } else {
-                jsonService.saveData(typeAdd, formData).then(response => {
-                    Swal.fire(response)
-                    document.getElementById('dialog').close();
+    
+                // Iterar sobre los selects y añadir sus valores al objeto formData
+                selects.forEach(select => {
+                    formData[select.id] = select.value.toLowerCase();
                 });
-            }
-        })
-        formContent.appendChild(button);
+    
+                // Guardar los datos utilizando jsonService.saveData
+                if (isEdit) {
+                    jsonService.updateData(typeAdd, formData).then(response => {
+                        Swal.fire(response)
+                        document.getElementById('dialog').close();
+                    });
+                } else {
+                    jsonService.saveData(typeAdd, formData).then(response => {
+                        Swal.fire(response)
+                        document.getElementById('dialog').close();
+                    });
+                }
+            })
+            formContent.appendChild(button);
+        }
         return formContent
     }
 

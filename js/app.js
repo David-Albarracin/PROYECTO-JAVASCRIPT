@@ -17,6 +17,7 @@ const sidebar = document.getElementById('sidebar');
 allDropdown.forEach(item=> {
 	const a = item.parentElement.querySelector('a:first-child');
 	a.addEventListener('click', function (e) {
+		e.stopPropagation();
 		e.preventDefault();
 
 		if(!this.classList.contains('active')) {
@@ -44,7 +45,7 @@ if(sidebar.classList.contains('hide')) {
 	allSideDivider.forEach(item=> {
 		item.textContent = '-';
         logo.src = "./img/logo.png";
-        
+       
 	})
 	allDropdown.forEach(item=> {
 		const a = item.parentElement.querySelector('a:first-child');
@@ -57,14 +58,15 @@ if(sidebar.classList.contains('hide')) {
         logo.src = "./img/logoWhite.png";
 	})
 }
-toggleSidebar.addEventListener('click', function () {
+toggleSidebar.addEventListener('click', function (e) {
+	e.stopPropagation();
 	sidebar.classList.toggle('hide');
 
 	if(sidebar.classList.contains('hide')) {
 		allSideDivider.forEach(item=> {
 			item.textContent = '-'
             logo.src = "./img/logo.png";
-            content.classList.add('content-record');
+			content.classList.add('content-record')
 		})
 
 		allDropdown.forEach(item=> {
@@ -80,7 +82,8 @@ toggleSidebar.addEventListener('click', function () {
 		})
 	}
 })
-sidebar.addEventListener('mouseleave', function () {
+sidebar.addEventListener('mouseleave', function (e) {
+	e.stopPropagation();
 	if(this.classList.contains('hide')) {
 		allDropdown.forEach(item=> {
 			const a = item.parentElement.querySelector('a:first-child');
@@ -94,7 +97,8 @@ sidebar.addEventListener('mouseleave', function () {
 		})
 	}
 })
-sidebar.addEventListener('mouseenter', function () {
+sidebar.addEventListener('mouseenter', function (e) {
+	e.stopPropagation();
 	if(this.classList.contains('hide')) {
 		allDropdown.forEach(item=> {
 			const a = item.parentElement.querySelector('a:first-child');
@@ -112,7 +116,8 @@ sidebar.addEventListener('mouseenter', function () {
 const profile = document.querySelector('nav .profile');
 const imgProfile = profile.querySelector('img');
 const dropdownProfile = profile.querySelector('.profile-link');
-imgProfile.addEventListener('click', function () {
+imgProfile.addEventListener('click', function (e) {
+	e.stopPropagation();
 	dropdownProfile.classList.toggle('show');
 })
 
@@ -124,10 +129,12 @@ allMenu.forEach(item=> {
 	const menuLink = item.querySelector('.menu-link');
 
 	icon.addEventListener('click', function () {
+		e.stopPropagation();
 		menuLink.classList.toggle('show');
 	})
 })
 window.addEventListener('click', function (e) {
+	e.stopPropagation();
 	if(e.target !== imgProfile) {
 		if(e.target !== dropdownProfile) {
 			if(dropdownProfile.classList.contains('show')) {

@@ -1,8 +1,6 @@
 
 /* SIDEBAR */
 #sidebar {
-	position: fixed;
-	max-width: 260px;
 	width: 100%;
 	background: var(--dark);
 	top: 0;
@@ -15,10 +13,10 @@
 	overflow: scroll;
 }
 #sidebar.hide {
-	max-width: 60px;
+	max-width: 100%;
 }
 #sidebar.hide:hover {
-	max-width: 260px;
+	max-width: 100%;
 }
 #sidebar::-webkit-scrollbar {
 	display: none;
@@ -163,8 +161,7 @@
 /* CONTENT */
 #content {
 	position: relative;
-	width: calc(100% - 260px);
-	left: 260px;
+	width: 100%;
 	transition: all .3s ease;
 }
 
@@ -191,7 +188,8 @@ nav {
 	z-index: 1;
 }
 nav .toggle-sidebar {
-	font-size: 18px;
+	display: none;
+	font-size: 20px;
 	cursor: pointer;
 }
 nav form {
@@ -556,11 +554,7 @@ main .btn-send:hover {
 
 
 @media screen and (max-width: 768px) {
-	#content {
-		position: relative;
-		width: calc(100% - 60px);
-		transition: all .3s ease;
-	}
+
 	nav .nav-link,
 	nav .divider {
 		display: none;

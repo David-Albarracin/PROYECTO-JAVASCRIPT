@@ -2,6 +2,7 @@
   "activos": [
     {
       "id": "1",
+      "Nombre": "Mesa",
       "CodTransaccion": "",
       "NroFormulario": "",
       "idMarca": "",
@@ -30,14 +31,14 @@
   ],
   "tipoPersonas": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "1",
+      "Nombre": "natural"
     }
   ],
   "tipoMovActivos": [
     {
-      "id": "",
-      "Nombre": ""
+      "id": "1",
+      "Nombre": "mov ac"
     }
   ],
   "tipoActivos": [
@@ -57,46 +58,46 @@
   ],
   "proveedores": [
     {
-      "id": "",
-      "Nombre": "",
-      "Email": ""
+      "id": "1",
+      "Nombre": "lg",
+      "Email": "test@gmail.com"
     }
   ],
   "historialActivos": [
     {
-      "id": "",
-      "idActivo": "",
+      "id": "1",
+      "idActivo": "1",
       "Fecha": "",
-      "idResponsable": "",
-      "idEstado": ""
+      "idResponsable": "1",
+      "idEstado": "1"
     }
   ],
   "telefonoPersonas": [
     {
-      "id": "",
-      "Nro": "",
-      "ubicacion": "",
-      "idPersona": ""
+      "id": "1",
+      "Nro": "11",
+      "ubicacion": "1",
+      "idPersona": "1"
     }
   ],
   "asignaciones": [
     {
-      "id": "",
+      "id": "1",
       "Fecha": "",
       "idResponsable": ""
     }
   ],
   "personas": [
     {
-      "id": "",
-      "Nombre": "",
+      "id": "1",
+      "Nombre": "pepe",
       "Email": "",
-      "idTipoPersona": ""
+      "idTipoPersona": "1"
     }
   ],
   "detalleMovimiento": [
     {
-      "id": "",
+      "id": "1",
       "Fecha": "",
       "idActivo": "",
       "Comentario": "",

@@ -75,7 +75,27 @@ export class sideBar extends HTMLElement {
                                 <div class="head">
                                     <h3>Crear Una Asignacion</h3>
                                 </div>
-                                <table-component type="idActivo"></table-component>
+                                <table-component type="Asignacion"></table-component>
+                            </div>
+                            `;
+                            break;
+                        case 'asignacionActivo':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Asignar Activo</h3>
+                                </div>
+                                <table-component type="DetalleMovimiento"></table-component>
+                            </div>
+                            `;
+                            break;
+                        case 'asignacionRetorn':
+                            main.innerHTML = `
+                            <div class="content-data">
+                                <div class="head">
+                                    <h3>Retornar Activo</h3>
+                                </div>
+                                <table-component type="Asignacion"></table-component>
                             </div>
                             `;
                             break;

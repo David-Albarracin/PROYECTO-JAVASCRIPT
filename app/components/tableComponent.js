@@ -18,20 +18,28 @@ export class tableComponent extends HTMLElement {
         //load Component and template
         const data = await jsonService.loadData(this.type)
         template.innerHTML =  /*HTML*/`
-        <nav class="nav-content">
-                <button id="add" class="button btn-success">
-                    Agregar
-                </button>
-                <button id="edit" class="button btn-info">
-                    Editar
-                </button>
-                <button id="del" class="button btn-danger">
-                    Eliminar
-                </button>
-                <button id="search" class="button btn-primary">
-                    Buscar
-                </button>
-        </nav>
+        <div class="row g-2">
+                <div class="col-md-3">
+                    <button id="add" class="button btn-success">
+                        Agregar
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button id="edit" class="button btn-info">
+                        Editar
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button id="del" class="button btn-danger">
+                        Eliminar
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button id="search" class="button btn-primary">
+                        Buscar
+                    </button>
+                </div>
+        </div>
         `
         data.forEach(element => {
             template.innerHTML += `

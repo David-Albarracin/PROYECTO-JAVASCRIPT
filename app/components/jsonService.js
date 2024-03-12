@@ -74,11 +74,12 @@ class JsonService {
 
     }
 
-    mapKeys(data) {
+    mapKeys(key) {
         const keyMap = {
             "idActivo": "activos",
             "idCategoria": "categoriaActivos",
             "idMarca": "marcas",
+            "idTipoPersona": "tipoPersonas",
             "TipoPersona": "tipoPersonas",
             "TipoMovimientoActivo": "tipoMovActivos",
             "idTipo": "tipoActivos",
@@ -86,13 +87,14 @@ class JsonService {
             "idProveedor": "proveedores",
             "HistorialActivo": "historialActivos",
             "TelefonoPersona": "telefonoPersonas",
+            "idAsignacion": "asignaciones",
             "Asignacion": "asignaciones",
             "idResponsable": "personas",
             "idEmpresaResponsable": "personas",
             "DetalleMovimiento": "detalleMovimiento"
         };
     
-        return keyMap[data] || data;
+        return keyMap[key] || key;
     }
 }
 

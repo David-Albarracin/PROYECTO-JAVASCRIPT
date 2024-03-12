@@ -76,7 +76,9 @@ export class searchComponent extends HTMLElement {
                 const button = tableContainer.querySelector(`[data-target-id="${element.id}"]`);
                 button.addEventListener('click', (e) => {
                     const id = JSON.parse(e.target.dataset.id)
-                    console.log(id);
+                    document.querySelector('#result-search').innerHTML = `
+                        <add-component type="${type}" id="${id[0]}" show="true"></add-component>
+                    `
                 });
             });
         })

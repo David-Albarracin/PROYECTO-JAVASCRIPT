@@ -7,6 +7,8 @@
     margin-left: 300px;
 }
 
+
+
 #search-input {
     border-radius: 25px;
 }
@@ -94,6 +96,7 @@
 ::backdrop {
     background-color: rgb(0, 0, 0);
     opacity: 0.9;
+    
 }
 
 dialog {
@@ -170,7 +173,7 @@ dialog {
 }
 
 .table-container:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: var(--background-show);
 }
 
@@ -192,6 +195,32 @@ dialog {
 @media (min-width: 992px) {
     .form-group button i {
         font-size: var(--h2-font-size);
+    }
+
+    
+    /* CONTENT */
+    #content {
+        position: relative;
+        width: calc(100% - 260px);
+        left: 260px;
+        transition: all .3s ease;
+    }
+
+
+    #sidebar {
+        position: fixed;
+        max-width: 260px;
+    }
+
+    nav .toggle-sidebar {
+        display: block;
+    }
+
+    #sidebar.hide {
+        max-width: 60px;
+    }
+    #sidebar.hide:hover {
+        max-width: 260px;
     }
 }
 
